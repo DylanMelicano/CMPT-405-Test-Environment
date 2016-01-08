@@ -25,7 +25,7 @@ public class ExampleMovement : MonoBehaviour {
             //Multiply it by speed.
             moveDirection.z *= speed;
             moveDirection.y *= speed;
-            moveDirection.x *= (speed * 2);
+            moveDirection.x *= speed;
             //Jumping
             if (Input.GetButton("Jump"))
                 moveDirection.y = jumpSpeed;
