@@ -12,6 +12,9 @@ public class ExampleMovement : MonoBehaviour {
     public float jumpSpeed = 8.0F;
     public float gravity = 20.0F;
     private Vector3 moveDirection = Vector3.zero;
+    public AudioClip footSound;
+    private bool audioPlaying = false;
+    private float walkTime;
 
     void Update()
     {
@@ -26,6 +29,23 @@ public class ExampleMovement : MonoBehaviour {
             moveDirection.z *= speed;
             moveDirection.y *= speed;
             moveDirection.x *= speed;
+
+            //Footstep sound
+            if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D) && !audioPlaying)
+            {
+                walkTime = walkTime + Time.deltaTime;
+                if (walkTime >= 0.75f)
+                {
+                    GetComponent<AudioSource>().PlayOneShot(footSound, 0.20f);
+                    audioPlaying = true;
+                    walkTime = 0.0f;
+                }
+            }
+            else
+            {
+                audioPlaying = false;
+            }
+
             //Jumping
             if (Input.GetButton("Jump"))
                 moveDirection.y = jumpSpeed;
