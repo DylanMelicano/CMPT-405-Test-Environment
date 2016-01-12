@@ -22,6 +22,23 @@ public class ExampleMovement : MonoBehaviour {
     private bool audioPlaying = false;
     private float walkTime;
     private int randTemp;
+    private int previousTemp = 0;
+
+    void RandomNumber()
+    {
+        randTemp = Random.Range(1, 5);
+        if (randTemp == previousTemp)
+        {
+            RandomNumber();
+        }
+    }
+
+
+
+
+
+
+
     void Update()
     {
         CharacterController controller = GetComponent<CharacterController>();
@@ -33,7 +50,7 @@ public class ExampleMovement : MonoBehaviour {
             moveDirection = transform.TransformDirection(moveDirection);
             //Multiply it by speed.
             moveDirection.z *= speed;
-            moveDirection.y *= speed;
+            //moveDirection.y *= speed;
             moveDirection.x *= speed;
 
             //Footstep sound
@@ -42,7 +59,8 @@ public class ExampleMovement : MonoBehaviour {
                 walkTime = walkTime + Time.deltaTime;
                 if (walkTime >= 0.7f)
                 {
-                    randTemp = Random.Range(1, 5);
+                    RandomNumber();//generates a random number for randTemp to determine a footsound, checks to make sure that the number is not repeated
+
                     if(randTemp == 1)
                     {
                         GetComponent<AudioSource>().PlayOneShot(footSound1, footSoundVolume);
@@ -67,6 +85,8 @@ public class ExampleMovement : MonoBehaviour {
                     {
                         GetComponent<AudioSource>().PlayOneShot(footSound6, footSoundVolume);
                     }
+
+                    previousTemp = randTemp;
 
                     audioPlaying = true;
                     walkTime = 0.0f;
