@@ -33,12 +33,6 @@ public class ExampleMovement : MonoBehaviour {
         }
     }
 
-
-
-
-
-
-
     void Update()
     {
         CharacterController controller = GetComponent<CharacterController>();
