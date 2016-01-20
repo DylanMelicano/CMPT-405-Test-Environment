@@ -5,6 +5,10 @@ public class OpenableDoor : MonoBehaviour {
 
     public float smooth = 2;
     public float DoorOpenAngle = 90;
+    public AudioClip openSound;
+    public AudioClip closeSound;
+    public float doorVolume = 0.2f;
+
     private bool open;
     private bool enter;
 
@@ -32,6 +36,14 @@ public class OpenableDoor : MonoBehaviour {
 
         if (Input.GetKeyDown("f") && enter)
         {
+            if(open == false)
+            {
+                GetComponent<AudioSource>().PlayOneShot(openSound, doorVolume);
+            }
+            else
+            {
+                GetComponent<AudioSource>().PlayOneShot(closeSound, doorVolume);
+            }
             open = !open;
         }
     }

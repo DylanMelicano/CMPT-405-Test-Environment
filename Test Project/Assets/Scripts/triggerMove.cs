@@ -3,7 +3,9 @@ using System.Collections;
 
 public class triggerMove : MonoBehaviour {
     public float activeTime;
-    public float speed;
+    public float xspeed = 0;
+    public float yspeed = 0;
+    public float zspeed = 0;
 
 
     private bool triggered = false;
@@ -14,7 +16,7 @@ public class triggerMove : MonoBehaviour {
         if (triggered == true)
         {
             Debug.Log("hello");
-            transform.position += new Vector3(0, 0, -speed);
+            transform.position += new Vector3(xspeed, yspeed, zspeed);
             if ((Time.time - timeSincetriggered) > activeTime)
             {
                 gameObject.SetActive(false);
