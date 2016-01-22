@@ -28,7 +28,7 @@ public class triggerMove : MonoBehaviour {
 	void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Player")
-        {
+        {			
             triggered = true;
             timeSincetriggered = Time.time;
         }
