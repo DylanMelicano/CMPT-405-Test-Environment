@@ -47,10 +47,13 @@
   <ItemGroup>
      <Compile Include="Assets\Billboarder.cs" />
      <Compile Include="Assets\FontChanger.cs" />
-     <Compile Include="Assets\KillPlayer.cs" />
      <Compile Include="Assets\Scripts\CameraMovement.cs" />
      <Compile Include="Assets\Scripts\ChangeTexture.cs" />
      <Compile Include="Assets\Scripts\ExampleMovement.cs" />
+     <Compile Include="Assets\Scripts\InventoryScript.cs" />
+     <Compile Include="Assets\Scripts\KeyOpenableDoor.cs" />
+     <Compile Include="Assets\Scripts\KeyScript.cs" />
+     <Compile Include="Assets\Scripts\KillPlayer.cs" />
      <Compile Include="Assets\Scripts\KillScript.cs" />
      <Compile Include="Assets\Scripts\MakeCheckPoint.cs" />
      <Compile Include="Assets\Scripts\OSCTestSender.cs" />
@@ -59,22 +62,17 @@
      <Compile Include="Assets\Scripts\TorchChange.cs" />
      <Compile Include="Assets\Scripts\rotateMe.cs" />
      <Compile Include="Assets\Scripts\triggerMove.cs" />
+     <None Include="Assets\Models\Key\readME keys.txt" />
      <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
      <None Include="Assets\Plugins\Pixelplacement\iTween\ReadMe!\ReadMe!.txt" />
      <None Include="Assets\Standard Assets\Characters\ThirdPersonCharacter\ThirdPersonCharacterGuidelines.txt" />
      <None Include="Assets\Standard Assets\Characters\FirstPersonCharacter\FirstPersonCharacterGuidelines.txt" />
      <None Include="Assets\Standard Assets\Characters\RollerBall\RollerBallGuidelines.txt" />
- <Reference Include="UnityEngine.Advertisements">
- <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Advertisements/UnityEngine.Advertisements.dll</HintPath>
- </Reference>
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.Networking">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
- </Reference>
- <Reference Include="UnityEngine.Analytics">
- <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll</HintPath>
  </Reference>
  <Reference Include="Mono.Cecil">
  <HintPath>C:/Program Files/Unity/Editor/Data/Managed/Mono.Cecil.dll</HintPath>
