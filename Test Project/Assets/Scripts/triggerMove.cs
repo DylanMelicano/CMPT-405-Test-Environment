@@ -3,6 +3,7 @@ using System.Collections;
 
 public class triggerMove : MonoBehaviour {
     public float activeTime;
+    public float startDelay;
     public float xspeed = 0;
     public float yspeed = 0;
     public float zspeed = 0;
@@ -13,11 +14,11 @@ public class triggerMove : MonoBehaviour {
     
     void Update()
     {
-        if (triggered == true)
+        if (triggered == true && startDelay < (Time.time - timeSincetriggered))
         {
             Debug.Log("hello");
             transform.position += new Vector3(xspeed, yspeed, zspeed);
-            if ((Time.time - timeSincetriggered) > activeTime)
+            if (((Time.time - startDelay) - timeSincetriggered) > activeTime)
             {
                 gameObject.SetActive(false);
             }

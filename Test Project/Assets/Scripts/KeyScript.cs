@@ -8,6 +8,8 @@ public class KeyScript : MonoBehaviour {
 	public int keyNumber;
 	bool nearKey = false;
 	bool keyObtained;
+
+    public AudioClip keysound;
 	
 	// Use this for initialization
 	void Start () {
@@ -18,9 +20,14 @@ public class KeyScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (nearKey == true && itemScript.hasKey(keyNumber) == false && Input.GetKeyDown(KeyCode.F)) {
-			itemScript.obtainKey(keyNumber);
-			gameObject.SetActive(false);
-		} 
+            GetComponent<AudioSource>().PlayOneShot(keysound, 0.8f);
+            itemScript.obtainKey(keyNumber);
+            GetComponentInChildren<Renderer>().enabled = false;
+            this.enabled = false;
+
+			//gameObject.SetActive(false);
+
+        } 
 		else if (itemScript.hasKey(keyNumber) == true) {
 			Debug.LogError ("Key already obtained");
 		}
@@ -30,7 +37,8 @@ public class KeyScript : MonoBehaviour {
 		if (other.CompareTag("Player")){
 			Debug.Log ("Player Near key #" + (keyNumber+1));
 			nearKey = true;
-		}
+
+        }
 	}
 	
 	void OnGUI()
