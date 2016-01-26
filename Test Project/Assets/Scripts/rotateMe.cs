@@ -3,7 +3,7 @@ using System.Collections;
 
 public class rotateMe : MonoBehaviour {
 
-    public int speed;
+    public float speed;
     public bool invert;
     // Use this for initialization
     void Start()
@@ -19,15 +19,15 @@ public class rotateMe : MonoBehaviour {
         if (invert)
         {
             temp.y -= speed;
-            //temp.x -= speed;
-           // temp.y -= speed;
+			//temp.x -= speed;
+            //temp.z -= speed;
 
         }
         else
         {
             temp.y += speed;
             //temp.x += speed;
-            //temp.y += speed;
+            //temp.z += speed;
         }
         transform.rotation = Quaternion.Euler(temp.x, temp.y, temp.z);
     }
