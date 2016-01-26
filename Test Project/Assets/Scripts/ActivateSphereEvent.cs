@@ -2,8 +2,11 @@
 using System.Collections;
 
 public class ActivateSphereEvent : MonoBehaviour {
-	
-	private bool enteredSphere = false;
+
+
+    public AudioClip doorClose;
+
+    private bool enteredSphere = false;
 	GameObject sphereRoom;
 	GameObject sphereDoor;
 	Transform originalPos;
@@ -29,7 +32,7 @@ public class ActivateSphereEvent : MonoBehaviour {
 			Debug.Log(sphereDoor.transform.position.y);
 			
 			if (sphereDoor.transform.position.y > -4.35f) {
-				Vector3 temp = new Vector3(0,0.01f,0);
+				Vector3 temp = new Vector3(0,0.018f,0);
 				sphereDoor.transform.position -= temp;
 			} else {
 				doorShutDone = true;
@@ -51,7 +54,8 @@ public class ActivateSphereEvent : MonoBehaviour {
 		if (other.CompareTag("Player")){
 			Debug.Log ("Sphere Room Activate");
 			//Increase lighting for the room
-			enteredSphere = true;			
+			enteredSphere = true;
+            sphereDoor.GetComponent<AudioSource>().PlayOneShot(doorClose);	
 			//sphereRoom.GetComponent<SphereEvent>().enabled = true;
 		}
 	}
