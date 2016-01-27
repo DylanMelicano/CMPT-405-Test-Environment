@@ -35,7 +35,7 @@ public class KeyScript : MonoBehaviour {
 	
 	void OnTriggerEnter (Collider other) {
 		if (other.CompareTag("Player")){
-			Debug.Log ("Player Near key #" + (keyNumber+1));
+			//Debug.Log ("Player Near key #" + (keyNumber+1));
 			nearKey = true;
 
         }
