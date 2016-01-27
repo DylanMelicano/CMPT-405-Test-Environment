@@ -41,7 +41,7 @@ public class SphereEvent : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (eventDuration > 0 || sphereAudio.isPlaying == true) {
+		if (eventDuration > 0/* || sphereAudio.isPlaying == true*/) {
 			eventsTime = eventsTime + Time.deltaTime;
 			
 			// Start with the initial rotation of sphereMaterials then change accordingly
@@ -77,7 +77,7 @@ public class SphereEvent : MonoBehaviour {
 			sphereAudio.loop = false;
 		}
 	
-		if (eventDuration == 0 && sphereAudio.isPlaying == false ) {
+		if (eventDuration == 0/* && sphereAudio.isPlaying == false */) {
 			ActivateSphereEvent activeEventScript;
 			activeEventScript = GameObject.Find("ActivationEvent").GetComponent<ActivateSphereEvent>();
 			
