@@ -27,7 +27,7 @@ public class TrapRoofEvent : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (exitIdleZone == true && invScript.hasKey(2)) {
-			if (trapRoof.transform.position.y > -6.1f) {
+			if (trapRoof.transform.position.y > -3.6f) {
 				Vector3 temp = new Vector3(0,0.007f,0);
 				trapRoof.transform.position -= temp;
 				
@@ -36,8 +36,10 @@ public class TrapRoofEvent : MonoBehaviour {
 					audioPlaying = true;
 				}
 			} else {
-					GetComponent<AudioSource>().Stop();	
-			}			
+					GetComponent<AudioSource>().Stop();
+                   trapRoof.GetComponent<BoxCollider>().isTrigger = false;
+                   trapRoof.GetComponent<KillScript>().enabled = false;
+           }			
 		}
 	
 	}

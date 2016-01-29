@@ -32,7 +32,7 @@ public class PillarRoomEvent : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (invScript.hasKey(1)) {
-			if (RenderSettings.ambientIntensity < 1.0f) {
+			if (RenderSettings.ambientIntensity < 1.5f) {
 				RenderSettings.ambientIntensity += 0.01f;
 			} else {
 				eventTime = eventTime + Time.deltaTime;
@@ -45,7 +45,7 @@ public class PillarRoomEvent : MonoBehaviour {
 				
 				foreach (GameObject pillarWall in pillarWalls) {
 					pillarWall.GetComponent<Renderer>().material = currWall;
-				}
+  				}
 			
 				foreach (GameObject pillar in pillars) {
 					pillar.GetComponent<rotateMe>().enabled = true;
@@ -59,4 +59,20 @@ public class PillarRoomEvent : MonoBehaviour {
 			}
 		}
 	}
+
+    public void stopEvent ()
+    {
+        foreach (GameObject pillarWall in pillarWalls)
+        {
+            pillarWall.GetComponent<Renderer>().material = firstWall;
+        }
+
+        foreach (GameObject pillar in pillars)
+        {
+            pillar.GetComponent<rotateMe>().enabled = false;
+        }
+
+        roomAudio.Stop();
+        soundPlaying = false;
+    }
 }

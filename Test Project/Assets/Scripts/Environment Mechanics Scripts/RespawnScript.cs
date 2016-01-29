@@ -22,7 +22,7 @@ public class RespawnScript : MonoBehaviour {
 		}
 		
 		if (respawn) {
-			transform.position = spawnPoint.position;
+            transform.position = spawnPoint.position;
 			// Change player state back to being alive
 			playerDead = false;
 		}

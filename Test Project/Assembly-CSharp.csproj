@@ -49,6 +49,7 @@
      <Compile Include="Assets\FontChanger.cs" />
      <Compile Include="Assets\Scripts\Environment Mechanics Scripts\CameraMovement.cs" />
      <Compile Include="Assets\Scripts\Environment Mechanics Scripts\ChangeTexture.cs" />
+     <Compile Include="Assets\Scripts\Environment Mechanics Scripts\DisablePillarEvent.cs" />
      <Compile Include="Assets\Scripts\Environment Mechanics Scripts\ExampleMovement.cs" />
      <Compile Include="Assets\Scripts\Environment Mechanics Scripts\InventoryScript.cs" />
      <Compile Include="Assets\Scripts\Environment Mechanics Scripts\KeyOpenableDoor.cs" />
