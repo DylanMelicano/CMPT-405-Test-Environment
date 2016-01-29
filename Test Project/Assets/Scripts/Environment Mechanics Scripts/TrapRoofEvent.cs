@@ -10,6 +10,7 @@ public class TrapRoofEvent : MonoBehaviour {
 	GameObject trapRoof;
 	Transform roofTransform;
 	InventoryScript invScript;
+	AudioSource roofSound;
 	bool audioPlaying = false;
 	
 	//On ground pos = -6.14f
@@ -19,6 +20,8 @@ public class TrapRoofEvent : MonoBehaviour {
 	void Start () {
 		trapRoof = GameObject.FindWithTag("TrapRoof");
 		invScript = GameObject.Find("KeyInventory").GetComponent<InventoryScript>();
+		roofSound = GetComponent<AudioSource>();
+		roofSound.clip = collapseSound;
 	}
 	
 	// Update is called once per frame
@@ -29,7 +32,7 @@ public class TrapRoofEvent : MonoBehaviour {
 				trapRoof.transform.position -= temp;
 				
 				if (audioPlaying == false) {
-					GetComponent<AudioSource>().PlayOneShot(collapseSound);
+					roofSound.Play();
 					audioPlaying = true;
 				}
 			} else {
