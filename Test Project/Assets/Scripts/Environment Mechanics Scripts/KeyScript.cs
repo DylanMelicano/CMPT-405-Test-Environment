@@ -40,8 +40,16 @@ public class KeyScript : MonoBehaviour {
 
         }
 	}
-	
-	void OnGUI()
+    void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            nearKey = false;
+
+        }
+    }
+
+    void OnGUI()
     {
         if (nearKey)
         {
