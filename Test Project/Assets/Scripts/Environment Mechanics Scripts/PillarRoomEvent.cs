@@ -6,10 +6,13 @@ public class PillarRoomEvent : MonoBehaviour {
 	public bool outIdleZone = false;
 	public AudioClip roomSound;
 	public int keyNumber;
+
+    public Color colour = new Color(0.2f, 0f, 0f, 1.0f);
 	
 	public Material firstWall;
 	public Material redWall;
-	Material currWall;
+    public Texture emissionWall;
+    Material currWall;
 	private float eventTime;
 	bool soundPlaying = false;
 	
@@ -32,7 +35,7 @@ public class PillarRoomEvent : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (invScript.hasKey(1)) {
-			if (RenderSettings.ambientIntensity < 1.5f) {
+			if (RenderSettings.ambientIntensity < 0f) {
 				RenderSettings.ambientIntensity += 0.01f;
 			} else {
 				eventTime = eventTime + Time.deltaTime;
@@ -45,7 +48,11 @@ public class PillarRoomEvent : MonoBehaviour {
 				
 				foreach (GameObject pillarWall in pillarWalls) {
 					pillarWall.GetComponent<Renderer>().material = currWall;
-  				}
+                    pillarWall.gameObject.GetComponent<Renderer>().material.EnableKeyword("_EMISSION");
+                    pillarWall.GetComponent<Renderer>().material.SetColor("_EmissionColor", (colour * Mathf.LinearToGammaSpace(Mathf.PingPong(Time.time, 5f))));
+                    //pillarWall.GetComponent<Renderer>().material.SetFloat("_EmissiveIntensity", 0.3f);
+                    pillarWall.GetComponent<Renderer>().material.SetTexture("_EmissionMap", emissionWall);
+                }
 			
 				foreach (GameObject pillar in pillars) {
 					pillar.GetComponent<rotateMe>().enabled = true;
