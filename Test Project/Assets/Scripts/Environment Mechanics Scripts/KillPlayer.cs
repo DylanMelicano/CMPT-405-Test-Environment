@@ -14,7 +14,6 @@ public class KillPlayer : MonoBehaviour {
 	}
 	
 	void OnTriggerEnter (Collider other) {
-		Debug.Log ("Yosh");
 		if (other.CompareTag("Player")){
 			RespawnScript spawnScript = other.GetComponent<RespawnScript>();
 			spawnScript.killPlayer();

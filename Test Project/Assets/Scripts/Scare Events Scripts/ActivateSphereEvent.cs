@@ -9,7 +9,6 @@ public class ActivateSphereEvent : MonoBehaviour {
     private bool enteredSphere = false;
 	GameObject sphereRoom;
 	GameObject sphereDoor;
-	Transform originalPos;
 	private bool lightComplete = false;
 	private bool doorShutDone = false;
 
@@ -17,7 +16,6 @@ public class ActivateSphereEvent : MonoBehaviour {
 	void Start () {
 		sphereRoom = GameObject.FindWithTag("SphereRoom");
 		sphereDoor = GameObject.FindWithTag("SphereDoor");
-		originalPos = sphereDoor.transform;
 	}
 	
 	// Update is called once per frame

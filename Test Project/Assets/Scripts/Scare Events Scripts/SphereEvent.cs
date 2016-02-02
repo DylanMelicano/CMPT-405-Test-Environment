@@ -92,8 +92,7 @@ public class SphereEvent : MonoBehaviour {
 	}
 	
 	//Rotating the offset script
-	public void rotateTexture (float xSpeed, float ySpeed) {
-		
+	public void rotateTexture (float xSpeed, float ySpeed) {		
 		offsetX = (xSpeed * Time.time);
         offsetY = (ySpeed * Time.time);
         

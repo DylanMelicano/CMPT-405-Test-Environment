@@ -28,7 +28,6 @@ public class DisablePillarEvent : MonoBehaviour {
 
     void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Yosh");
         if (other.CompareTag("Player"))
         {
             playerLeft = true;

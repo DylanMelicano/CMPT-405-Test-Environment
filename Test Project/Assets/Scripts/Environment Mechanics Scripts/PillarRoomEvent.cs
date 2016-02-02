@@ -14,14 +14,15 @@ public class PillarRoomEvent : MonoBehaviour {
     public Texture emissionWall;
     Material currWall;
 	private float eventTime;
-	bool soundPlaying = false;
 	
 	GameObject[] pillarWalls;
 	GameObject[] pillars;
 	InventoryScript invScript;
 	AudioSource roomAudio;
 	
-	bool audioPlaying = false;
+	bool soundPlaying = false;
+	bool allRotating = false;
+	
 
 	// Use this for initialization
 	void Start () {
@@ -53,9 +54,13 @@ public class PillarRoomEvent : MonoBehaviour {
                     //pillarWall.GetComponent<Renderer>().material.SetFloat("_EmissiveIntensity", 0.3f);
                     pillarWall.GetComponent<Renderer>().material.SetTexture("_EmissionMap", emissionWall);
                 }
-			
-				foreach (GameObject pillar in pillars) {
-					pillar.GetComponent<rotateMe>().enabled = true;
+				
+				if (allRotating == false) {
+					foreach (GameObject pillar in pillars) {
+						pillar.GetComponent<rotateMe>().enabled = true;
+						//Change the Material to a scary one. 
+					}
+					allRotating = true;
 				}
 				
 				if (soundPlaying == false) {

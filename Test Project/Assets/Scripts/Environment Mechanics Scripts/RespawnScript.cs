@@ -6,10 +6,14 @@ public class RespawnScript : MonoBehaviour {
 	public Transform spawnPoint;
 	private bool respawn = false;
 	public bool playerDead = false;
+	
+	ExampleMovement move;
+	CameraMovement camera;
 
 	// Use this for initialization
 	void Start () {
-	
+		move = this.GetComponent<ExampleMovement>();
+		camera = this.GetComponent<CameraMovement>();
 	}
 	
 	// Update is called once per frame
@@ -22,6 +26,13 @@ public class RespawnScript : MonoBehaviour {
 		}
 		
 		if (respawn) {
+			if (move.enabled == false) {
+				move.enabled = true;
+			}
+			
+			if (camera.enabled == false) {
+				camera.enabled = true;
+			}
             transform.position = spawnPoint.position;
 			// Change player state back to being alive
 			playerDead = false;
