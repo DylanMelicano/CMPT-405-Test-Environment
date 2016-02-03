@@ -40,7 +40,7 @@ public function Update () {
     // object.transform.Rotate(0, yRot, 0);
     
     //Wall Changing (all walls so far)
-    var walls: GameObject[];
+    /**var walls: GameObject[];
     walls = GameObject.FindGameObjectsWithTag("Wall");
     for (var wall: GameObject in walls) {
         if (textureValue > 0.25f) {
@@ -61,7 +61,7 @@ public function Update () {
                torch.GetComponentInChildren(Light).range = 5.77f;
                 torch.GetComponentInChildren(ParticleSystem).startLifetime = 1.80f;
                 }
-           }
+           }**/
 }
 
 //These functions are called when messages are received

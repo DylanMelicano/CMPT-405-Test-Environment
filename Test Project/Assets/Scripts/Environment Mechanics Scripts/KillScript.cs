@@ -20,7 +20,6 @@ public class KillScript : MonoBehaviour {
 	}
 	
 	void OnTriggerEnter (Collider other) {
-		Debug.Log ("Yosh");
 		if (other.gameObject.tag == "Player"){
             hasDied = true;
 		}

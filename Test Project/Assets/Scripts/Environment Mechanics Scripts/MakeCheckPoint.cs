@@ -14,8 +14,8 @@ public class MakeCheckPoint : MonoBehaviour {
 	}
 	
 	void OnTriggerEnter (Collider other) {
-		Debug.Log ("Entered Checkpoint");
 		if (other.CompareTag("Player")){
+			Debug.Log ("Entered Checkpoint");
 			RespawnScript spawnScript;
 			spawnScript = other.GetComponent<RespawnScript>();
 			spawnScript.makeCheckPoint(this.transform);

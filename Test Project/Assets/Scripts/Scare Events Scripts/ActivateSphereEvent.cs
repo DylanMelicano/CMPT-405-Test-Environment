@@ -27,7 +27,7 @@ public class ActivateSphereEvent : MonoBehaviour {
 				lightComplete = true;
 			}
 			
-			Debug.Log(sphereDoor.transform.position.y);
+			//Debug.Log(sphereDoor.transform.position.y);
 			
 			if (sphereDoor.transform.position.y > -4.35f) {
 				Vector3 temp = new Vector3(0,0.018f,0);
