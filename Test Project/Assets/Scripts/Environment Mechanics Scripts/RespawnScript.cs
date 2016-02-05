@@ -8,12 +8,12 @@ public class RespawnScript : MonoBehaviour {
 	public bool playerDead = false;
 	
 	ExampleMovement move;
-	CameraMovement camera;
+	CameraMovement playerCamera;
 
 	// Use this for initialization
 	void Start () {
 		move = this.GetComponent<ExampleMovement>();
-		camera = this.GetComponent<CameraMovement>();
+		playerCamera = this.GetComponent<CameraMovement>();
 	}
 	
 	// Update is called once per frame
@@ -30,8 +30,8 @@ public class RespawnScript : MonoBehaviour {
 				move.enabled = true;
 			}
 			
-			if (camera.enabled == false) {
-				camera.enabled = true;
+			if (playerCamera.enabled == false) {
+				playerCamera.enabled = true;
 			}
             transform.position = spawnPoint.position;
 			// Change player state back to being alive

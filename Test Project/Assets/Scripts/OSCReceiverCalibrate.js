@@ -14,6 +14,7 @@ public var numOfReadings : int = 0;
 public var averageOfRates : float;
 
 var calibrationTime : float = 0f;
+var startComputation : boolean = false;
 var calculated : boolean= false;
 
 //VARIABLES YOU WANT TO BE ANIMATED
@@ -41,13 +42,16 @@ public function Start ()
 Debug.Log("Running");
 
 public function Update () {
-    calibrationTime = calibrationTime + Time.deltaTime;
-    
-    if (calibrationTime >= 10f /**&& calculated == false**/) {
-        Debug.Log ("Average: " + averageRates());
-        //calculated = true;
-        calibrationTime = 0f;
-    }
+	if (startComputation === true) {
+		calibrationTime = calibrationTime + Time.deltaTime;
+		
+		if (calibrationTime >= 10f && calculated === false) {
+			Debug.Log ("Average: " + averageRates());
+			calculated = true;
+			startComputation = false;
+			calibrationTime = 0f;
+		}
+	}
 
 }
 
@@ -67,7 +71,7 @@ public function AllMessageHandler(oscMessage: OscMessage) {
             break;
     }
 
-   // Debug.Log ("Current Value: " + msgValue + " | Current Array: " + stackOfRates[0] + ", " + stackOfRates[1] + ", " + stackOfRates[2] + ", " + stackOfRates[3] + ", " + stackOfRates[4] + ", " + stackOfRates[5] + ", " + stackOfRates[6] + ", " + stackOfRates[7] + ", " + stackOfRates[8] + ", " + stackOfRates[9]);
+   //Debug.Log ("Current Value: " + msgValue + " | Current Array: " + stackOfRates[0] + ", " + stackOfRates[1] + ", " + stackOfRates[2] + ", " + stackOfRates[3] + ", " + stackOfRates[4] + ", " + stackOfRates[5] + ", " + stackOfRates[6] + ", " + stackOfRates[7] + ", " + stackOfRates[8] + ", " + stackOfRates[9]);
 }
 
     //FUNCTIONS CALLED BY MATCHING A SPECIFIC MESSAGE IN THE ALLMESSAGEHANDLER FUNCTION
@@ -105,3 +109,21 @@ public function AllMessageHandler(oscMessage: OscMessage) {
        
         return averageOfRates;
     }
+	
+	// Function to clear of all the values read by the LighTStone device
+	// Used to reset measurements
+	public function clearStackOfRates () : void {
+		for (var i = 0; i < 10; i++) {
+            stackOfRates[i] = 0f;
+        }
+		//Debug.Log ("Current Array: " + stackOfRates[0] + ", " + stackOfRates[1] + ", " + stackOfRates[2] + ", " + stackOfRates[3] + ", " + stackOfRates[4] + ", " + stackOfRates[5] + ", " + stackOfRates[6] + ", " + stackOfRates[7] + ", " + stackOfRates[8] + ", " + stackOfRates[9]);
+	}
+	
+	public function getAverageOfRates () : float{
+		return averageOfRates;
+	}
+
+	function startComp () : void {
+		startComputation = true;
+		calculated = false;
+	}
