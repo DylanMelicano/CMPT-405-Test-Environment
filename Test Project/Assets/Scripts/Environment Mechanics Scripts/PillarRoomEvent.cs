@@ -19,6 +19,7 @@ public class PillarRoomEvent : MonoBehaviour {
 	GameObject[] pillars;
 	InventoryScript invScript;
 	AudioSource roomAudio;
+    public GameObject pillarGuardian;
 	
 	bool soundPlaying = false;
 	bool allRotating = false;
@@ -31,12 +32,14 @@ public class PillarRoomEvent : MonoBehaviour {
 		invScript = GameObject.Find("KeyInventory").GetComponent<InventoryScript>();
 		roomAudio = GetComponent<AudioSource>();
 		roomAudio.clip = roomSound;
+        
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		if (invScript.hasKey(1)) {
-			if (RenderSettings.ambientIntensity < 0f) {
+            pillarGuardian.SetActive(true);
+            if (RenderSettings.ambientIntensity < 0f) {
 				RenderSettings.ambientIntensity += 0.01f;
 			} else {
 				eventTime = eventTime + Time.deltaTime;
@@ -83,7 +86,7 @@ public class PillarRoomEvent : MonoBehaviour {
         {
             pillar.GetComponent<rotateMe>().enabled = false;
         }
-
+        pillarGuardian.SetActive(false);
         roomAudio.Stop();
         soundPlaying = false;
     }
