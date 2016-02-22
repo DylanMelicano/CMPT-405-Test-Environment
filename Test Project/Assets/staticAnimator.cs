@@ -35,6 +35,7 @@ public class staticAnimator : MonoBehaviour {
 
     void UpdateStatic()
     {
+
         if (staticOn == true)//check if static is needed
         {
             if(proximity > 220)//check to make sure static value does not exceed the maximum
@@ -58,9 +59,13 @@ public class staticAnimator : MonoBehaviour {
             tex.Apply();
             mat.mainTexture = tex;
         }
-        else if(playerRenderer.enabled == true)
+        if(staticOn == true)
         {
-            playerRenderer.enabled = false;
+            playerRenderer.enabled = true;
+        }
+        else
+        {
+            playerRenderer.enabled = true;
         }
     }
 }
