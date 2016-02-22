@@ -27,9 +27,14 @@ public class OSCReceiver : MonoBehaviour {
 	
 	public float averageOfRates;
 	
+	public float prevAverage = 0f;
+	public float currAverage = 0f;
+	
 	float calibrationTime = 0f;
 	bool startComputation = false;
 	bool calculated = false;
+	
+	PlayerChanges playerChanges;
 	
 	// Use this for initialization
 	void Start () {
@@ -37,6 +42,9 @@ public class OSCReceiver : MonoBehaviour {
 		//Initializes on start up to listen for messages
 		//make sure this game object has both UDPPackIO and OSC script attached
 		stackOfRates = new float[500];
+		
+		//The scripts that will do the changes
+		playerChanges = GameObject.FindWithTag("Player").GetComponent<PlayerChanges>();
 		
 		UDPPacketIO udp = GetComponent<UDPPacketIO>();
 		udp.init(RemoteIP, SendToPort, ListenerPort);
@@ -49,14 +57,33 @@ public class OSCReceiver : MonoBehaviour {
 	void Update () {
 		calibrationTime = calibrationTime + Time.deltaTime;
 		if (calibrationTime >= 10f && calculated == false) {
-			for (int i = 0; i < stackOfRates.Length; i++) {
+
+			//Debug.Log ("Ten seconds have passed. Number of Readings: " + numOfReadings + " test Reading: " + testNumber + " Checking array content: " + testNumberCheck + " Average of Readings: " + averageRates());			
+			prevAverage = currAverage;
+			currAverage = averageRates();
+			
+			Debug.Log("Ten seconds have passed. Previous Average of Readings: " + prevAverage + " Current Average of Readings: " + currAverage);
+			
+			//If no recorded averages yet, do not start the checking
+			if (prevAverage != 0f && currAverage != 0f) {
+					playerChanges.setAverages(prevAverage, currAverage);
+					playerChanges.toggleCheck();
+			}
+
+			calibrationTime = 0f;	//Start another average measurement in the next 10 seconds
+		}
+		
+		/**for (int i = 0; i < stackOfRates.Length; i++) {
 				if (stackOfRates[i] > 0f) {
 					testNumberCheck++;
 				}
-			}
-			Debug.Log ("Ten seconds have passed. Number of Readings: " + numOfReadings + " test Reading: " + testNumber + " Checking array content: " + testNumberCheck + " Average of Readings: " + averageRates());
-			calculated = true;
-		}
+			}**/
+		// If effect is still going on, do not compare new measurement to new measurement
+		// If changing effect is done, start comparing measurements again
+		// Call on methods from the various Environment Changing Scripts, pass them the previous and new values, and let them do the increments or not.
+		// Have the changes be little increments until they reach their maximum threshold
+		// Environment changes will be permanent. With fog possibly weakening if we want to have it.
+		// Enemy and player (torch light, walk speed(?), camera effects (?) ) changes will vary via the measurement
 	
 	}
 	
@@ -67,10 +94,10 @@ public class OSCReceiver : MonoBehaviour {
 		//since we are just transferring double/float types I will just declare the message as float
 		float msgValue = (float) oscMessage.Values[0]; //the message value
 		
-		if (calculated == false) {
-			Debug.Log(msgValue);
+		/**if (calculated == false) {
+			//Debug.Log(msgValue);
 			testNumber++;
-		}
+		}**/
 		
 		//FUNCTIONS YOU WANT CALLED WHEN A SPECIFIC MESSAGE IS RECEIVED
 		switch (msgAddress){
@@ -124,6 +151,14 @@ public class OSCReceiver : MonoBehaviour {
 	
 	public float getAverageOfRates () {
 		return averageOfRates;
+	}
+	
+	public float getPrevAverage () {
+		return prevAverage;
+	}
+	
+	public float getCurrAverage () {
+		return currAverage;
 	}
 	
 	void startComp () {
