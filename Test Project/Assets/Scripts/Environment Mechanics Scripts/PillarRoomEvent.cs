@@ -23,6 +23,7 @@ public class PillarRoomEvent : MonoBehaviour {
 	
 	bool soundPlaying = false;
 	bool allRotating = false;
+    bool guardianSpawned = false;
 	
 
 	// Use this for initialization
@@ -38,7 +39,11 @@ public class PillarRoomEvent : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (invScript.hasKey(1)) {
-            pillarGuardian.SetActive(true);
+            if(guardianSpawned == false)
+            {
+                pillarGuardian.SetActive(true);
+                guardianSpawned = true;
+            }
             if (RenderSettings.ambientIntensity < 0f) {
 				RenderSettings.ambientIntensity += 0.01f;
 			} else {

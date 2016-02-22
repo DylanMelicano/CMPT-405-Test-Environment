@@ -72,6 +72,7 @@
      <Compile Include="Assets\Scripts\Scare Events Scripts\NooseDeath.cs" />
      <Compile Include="Assets\Scripts\Scare Events Scripts\SphereEvent.cs" />
      <Compile Include="Assets\Scripts\Scare Events Scripts\triggerMove.cs" />
+     <Compile Include="Assets\staticAnimator.cs" />
      <None Include="Assets\Models\Key\readME keys.txt" />
      <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
      <None Include="Assets\Plugins\Pixelplacement\iTween\ReadMe!\ReadMe!.txt" />

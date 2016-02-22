@@ -5,6 +5,7 @@ public class KillScript : MonoBehaviour {
 
     RespawnScript spawnScript;
     bool hasDied = false;
+    public GameObject disableEnemy;
 
 	// Use this for initialization
 	void Start () {
@@ -14,8 +15,13 @@ public class KillScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (hasDied) {
+            if (disableEnemy != null)
+            {
+                disableEnemy.SetActive(false);
+            }
             spawnScript.killPlayer();
             hasDied = false;
+            
         }
 	}
 	
