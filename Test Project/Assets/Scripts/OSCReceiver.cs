@@ -44,7 +44,7 @@ public class OSCReceiver : MonoBehaviour {
 		stackOfRates = new float[500];
 		
 		//The scripts that will do the changes
-		playerChanges = GameObject.FindWithTag("Player").GetComponent<PlayerChanges>();
+		playerChanges = GameObject.FindWithTag("PlayerChange").GetComponent<PlayerChanges>();
 		
 		UDPPacketIO udp = GetComponent<UDPPacketIO>();
 		udp.init(RemoteIP, SendToPort, ListenerPort);

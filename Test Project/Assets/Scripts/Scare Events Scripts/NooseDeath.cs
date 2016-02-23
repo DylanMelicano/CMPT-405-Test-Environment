@@ -13,6 +13,7 @@ public class NooseDeath : MonoBehaviour {
 	
 	GameObject player;
 	GameObject nooseChair;
+	GameObject womanWhisper;
 	Renderer chair;
 
 	// Use this for initialization
@@ -20,6 +21,7 @@ public class NooseDeath : MonoBehaviour {
 		player = GameObject.FindWithTag("Player");
 		nooseChair = GameObject.FindWithTag("NooseChair");
 		chair = nooseChair.GetComponentInChildren<Renderer>();
+		womanWhisper = GameObject.Find("WhisperVoice");
 	}
 	
 	// Update is called once per frame
@@ -37,6 +39,7 @@ public class NooseDeath : MonoBehaviour {
 			
 			if (waitTime > 10f && eventStarted) {
 				if (soundPlaying == false) {
+					womanWhisper.GetComponent<AudioSource>().Play();
 					this.GetComponent<AudioSource>().PlayOneShot(chokeSound);
 					soundPlaying = true;
 				} else {

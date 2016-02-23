@@ -13,6 +13,13 @@ public class triggerMove : MonoBehaviour {
 
     private bool triggered = false;
     private float timeSincetriggered;
+	
+	staticAnimator staticScript;
+
+    // Use this for initialization
+    void Start () {
+        staticScript = GameObject.FindWithTag("Player").GetComponentInChildren<staticAnimator>();
+	}
     
     void Update()
     {
@@ -28,6 +35,7 @@ public class triggerMove : MonoBehaviour {
 			
             if (((Time.time - startDelay) - timeSincetriggered) > activeTime)
             {
+				staticScript.staticOn = false;
                 gameObject.SetActive(false);
             }
         }

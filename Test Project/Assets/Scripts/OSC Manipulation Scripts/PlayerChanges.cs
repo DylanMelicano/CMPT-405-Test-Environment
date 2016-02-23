@@ -4,7 +4,7 @@ using System.Collections;
 public class PlayerChanges : MonoBehaviour {
 	
 	//Script to change aspects of the player. 
-	//Mainly wil lbe the torchlight Intensity, walking speed, sound and camera effects (tentative).
+	//Mainly wil lbe the torchlight Intensity, walking speed (NOPE. Will be even slower), sound and camera effects (tentative).
 	
 	OSCReceiver mainReceiverScript;
 	Light playerTorch;	
@@ -14,10 +14,13 @@ public class PlayerChanges : MonoBehaviour {
 	float totalValueChange = 0f;
 	
 	bool changeWalkSpeed = false;
+	
+	public AudioClip heartBeat;
 	bool heartSoundPlaying = false;
+	
 	bool cameraEffectPlaying = false;
 	
-	float obtainAverageTime = 0f;
+	float heartBeatTime = 0f;
 	bool testCalc = false;
 	
 	public float prevAvg = 0f;
@@ -28,7 +31,8 @@ public class PlayerChanges : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		mainReceiverScript = GameObject.FindWithTag("MeasureObject").GetComponent<OSCReceiver>();
-		playerTorch = GetComponentInChildren<Light>();
+		GameObject player = GameObject.FindWithTag("Player");
+		playerTorch = player.GetComponentInChildren<Light>();
 	}
 	
 	// Update is called once per frame
@@ -36,10 +40,17 @@ public class PlayerChanges : MonoBehaviour {
 		if (checkAverages == true) {
 			if (currAvg > (prevAvg * 1.1f)) {
 				reduceTorchlight();
+				if (heartSoundPlaying == false) {
+					GetComponent<AudioSource>().Play();
+					heartSoundPlaying = true;
+				}
 			} else if (currAvg <= (prevAvg * 0.9f)){
 				increaseTorchlight();
+				GetComponent<AudioSource>().Stop();
+				heartSoundPlaying = false;
 			}						
 		}
+		
 		
 		if (changeTorch == true) {
 			checkAverages = false;
@@ -76,10 +87,10 @@ public class PlayerChanges : MonoBehaviour {
 		}
 	}
 	
+	
 	public void toggleChangesChecks () {
 		changeTorch = false;
-		changeWalkSpeed = false;
-		//heartSoundPlaying = false;
+		heartSoundPlaying = false;
 		//cameraEffectPlaying = false;
 	}
 	

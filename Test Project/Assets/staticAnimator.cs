@@ -65,7 +65,7 @@ public class staticAnimator : MonoBehaviour {
         }
         else
         {
-            playerRenderer.enabled = true;
+            playerRenderer.enabled = false;
         }
     }
 }
