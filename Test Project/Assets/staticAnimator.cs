@@ -30,11 +30,19 @@ public class staticAnimator : MonoBehaviour {
         tex.Apply();
         mat.mainTexture = tex;
 
+        InvokeRepeating("UpdateStaticCancel", 0.0f, 10.0f);
         InvokeRepeating("UpdateStatic", 0.0f, 1.0f / updateFrequency);
+
     }
+
+   
 
     void UpdateStatic()
     {
+        if(proximity == 0)
+        {
+            staticOn = false;
+        }
 
         if (staticOn == true)//check if static is needed
         {
@@ -67,5 +75,6 @@ public class staticAnimator : MonoBehaviour {
         {
             playerRenderer.enabled = false;
         }
+        proximity = 0;
     }
 }

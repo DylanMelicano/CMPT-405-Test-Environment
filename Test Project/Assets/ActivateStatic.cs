@@ -15,14 +15,17 @@ public class ActivateStatic : MonoBehaviour {
         player = GameObject.FindWithTag("Player");
         staticScript = staticQuad.GetComponent<staticAnimator>();
 	}
+
 	
 	// Update is called once per frame
-	void Update () {
+	void Update() {
         distance = Vector3.Distance(transform.position, player.transform.position);
         if (distance < maximumProximity && distance >= 0)
         {
             staticScript.staticOn = true;
             staticScript.proximity = (int)Mathf.Lerp(230f, 0.0f, distance/maximumProximity);
         }
+        
+        
 	}
 }
