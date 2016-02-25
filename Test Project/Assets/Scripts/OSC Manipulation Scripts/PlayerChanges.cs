@@ -9,6 +9,12 @@ public class PlayerChanges : MonoBehaviour {
 	OSCReceiver mainReceiverScript;
 	Light playerTorch;	
 	
+	GameObject practiceWall;
+	CrossFade sample;	
+	public Texture sampleText;
+	Vector2 temp;
+	Vector2 tempTiling;
+	
 	//Check variables to see if changes will initiate or not.
 	bool changeTorch = false;
 	float totalValueChange = 0f;
@@ -33,10 +39,21 @@ public class PlayerChanges : MonoBehaviour {
 		mainReceiverScript = GameObject.FindWithTag("MeasureObject").GetComponent<OSCReceiver>();
 		GameObject player = GameObject.FindWithTag("Player");
 		playerTorch = player.GetComponentInChildren<Light>();
+		
+		practiceWall = GameObject.Find("PracticePlane");
+		sample = practiceWall.GetComponent<CrossFade>();
+		temp = new Vector2 (0f,0f);
+		tempTiling = new Vector2 (1f,1f);
 	}
 	
 	// Update is called once per frame
-	void Update () {		
+	void Update () {
+		heartBeatTime += Time.deltaTime;
+		if (heartBeatTime >= 10f) {
+				sample.CrossFadeTo(sampleText, temp, tempTiling);
+				heartBeatTime = 0f;
+		}
+		
 		if (checkAverages == true) {
 			if (currAvg > (prevAvg * 1.1f)) {
 				reduceTorchlight();
