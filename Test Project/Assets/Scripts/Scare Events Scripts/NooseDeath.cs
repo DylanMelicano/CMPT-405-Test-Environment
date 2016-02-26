@@ -29,7 +29,7 @@ public class NooseDeath : MonoBehaviour {
 		if (startHangEvent) {
 			waitTime = waitTime + Time.deltaTime;
 			
-			if (waitTime > 5.0f) {
+			if (waitTime >= 5.0f) {
 				if (eventStarted == false) {
 					nooseChair.GetComponentInChildren<Renderer>().transform.rotation = Quaternion.Euler(0,0,90f);
 					player.GetComponent<ExampleMovement>().enabled = false;
@@ -37,7 +37,7 @@ public class NooseDeath : MonoBehaviour {
 				}				
 			}
 			
-			if (waitTime > 10f && eventStarted) {
+			if (waitTime >= 10f && eventStarted) {
 				if (soundPlaying == false) {
 					womanWhisper.GetComponent<AudioSource>().Play();
 					this.GetComponent<AudioSource>().PlayOneShot(chokeSound);

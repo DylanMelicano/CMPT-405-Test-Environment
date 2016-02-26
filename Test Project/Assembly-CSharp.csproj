@@ -70,6 +70,7 @@
      <Compile Include="Assets\Scripts\Environment Mechanics Scripts\TorchChange.cs" />
      <Compile Include="Assets\Scripts\Environment Mechanics Scripts\TrapRoofEvent.cs" />
      <Compile Include="Assets\Scripts\Environment Mechanics Scripts\rotateMe.cs" />
+     <Compile Include="Assets\Scripts\OSC Manipulation Scripts\EnvironmentChanges.cs" />
      <Compile Include="Assets\Scripts\OSC Manipulation Scripts\PlayerChanges.cs" />
      <Compile Include="Assets\Scripts\OSCReceiver.cs" />
      <Compile Include="Assets\Scripts\OSCTestSender.cs" />

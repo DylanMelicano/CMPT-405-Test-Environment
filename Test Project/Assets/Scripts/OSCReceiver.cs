@@ -35,6 +35,7 @@ public class OSCReceiver : MonoBehaviour {
 	bool calculated = false;
 	
 	PlayerChanges playerChanges;
+	EnvironmentChanges envChanges;
 	
 	// Use this for initialization
 	void Start () {
@@ -45,6 +46,7 @@ public class OSCReceiver : MonoBehaviour {
 		
 		//The scripts that will do the changes
 		playerChanges = GameObject.FindWithTag("PlayerChange").GetComponent<PlayerChanges>();
+		envChanges = GameObject.FindWithTag("EnvChange").GetComponent<EnvironmentChanges>();
 		
 		UDPPacketIO udp = GetComponent<UDPPacketIO>();
 		udp.init(RemoteIP, SendToPort, ListenerPort);
@@ -68,6 +70,9 @@ public class OSCReceiver : MonoBehaviour {
 			if (prevAverage != 0f && currAverage != 0f) {
 					playerChanges.setAverages(prevAverage, currAverage);
 					playerChanges.toggleCheck();
+					
+					envChanges.setAveragesEnv(prevAverage, currAverage);
+					envChanges.toggleEnvCheck();
 			}
 
 			calibrationTime = 0f;	//Start another average measurement in the next 10 seconds

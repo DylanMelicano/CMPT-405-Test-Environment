@@ -4,11 +4,12 @@ using System.Collections;
 public class PlayerChanges : MonoBehaviour {
 	
 	//Script to change aspects of the player. 
-	//Mainly wil lbe the torchlight Intensity, walking speed (NOPE. Will be even slower), sound and camera effects (tentative).
+	//Torchlight Intensity changes and Heartbeat sound will or will not play
 	
 	OSCReceiver mainReceiverScript;
 	Light playerTorch;	
 	
+	//Blend Practice
 	GameObject practiceWall;
 	CrossFade sample;	
 	public Texture sampleText;
@@ -16,18 +17,18 @@ public class PlayerChanges : MonoBehaviour {
 	Vector2 tempTiling;
 	
 	//Check variables to see if changes will initiate or not.
-	bool changeTorch = false;
+	public bool changeTorch = false;
 	float totalValueChange = 0f;
 	
-	bool changeWalkSpeed = false;
+	//bool changeWalkSpeed = false;
 	
 	public AudioClip heartBeat;
-	bool heartSoundPlaying = false;
+	public bool heartSoundPlaying = false;
 	
-	bool cameraEffectPlaying = false;
+	//bool cameraEffectPlaying = false;
 	
-	float heartBeatTime = 0f;
-	bool testCalc = false;
+	//float heartBeatTime = 0f;
+	//bool testCalc = false;
 	
 	public float prevAvg = 0f;
 	public float currAvg = 0f;
@@ -40,19 +41,22 @@ public class PlayerChanges : MonoBehaviour {
 		GameObject player = GameObject.FindWithTag("Player");
 		playerTorch = player.GetComponentInChildren<Light>();
 		
+		//Environment changes practice
+		//Blend practice
 		practiceWall = GameObject.Find("PracticePlane");
 		sample = practiceWall.GetComponent<CrossFade>();
 		temp = new Vector2 (0f,0f);
-		tempTiling = new Vector2 (1f,1f);
+		tempTiling = new Vector2 (3f,1.5f);
+		
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		heartBeatTime += Time.deltaTime;
-		if (heartBeatTime >= 10f) {
+		/**heartBeatTime += Time.deltaTime;
+		if (heartBeatTime >= 5f) {
 				sample.CrossFadeTo(sampleText, temp, tempTiling);
 				heartBeatTime = 0f;
-		}
+		}**/		
 		
 		if (checkAverages == true) {
 			if (currAvg > (prevAvg * 1.1f)) {
@@ -63,14 +67,13 @@ public class PlayerChanges : MonoBehaviour {
 				}
 			} else if (currAvg <= (prevAvg * 0.9f)){
 				increaseTorchlight();
-				GetComponent<AudioSource>().Stop();
 				heartSoundPlaying = false;
+			} else {
+				toggleChangesChecks();
 			}						
 		}
 		
-		
 		if (changeTorch == true) {
-			checkAverages = false;
 			toggleChangesChecks();
 			totalValueChange = 0f;
 		}
@@ -90,7 +93,9 @@ public class PlayerChanges : MonoBehaviour {
 			} else {
 				changeTorch = true;
 			}
-		} 
+		} else {
+			changeTorch = true;
+		}
 	}
 	
 	public void increaseTorchlight() {
@@ -101,14 +106,15 @@ public class PlayerChanges : MonoBehaviour {
 			} else {
 				changeTorch = true;
 			}
+		} else {
+			changeTorch = true;
 		}
-	}
-	
+	}	
 	
 	public void toggleChangesChecks () {
+		checkAverages = false;
 		changeTorch = false;
 		heartSoundPlaying = false;
-		//cameraEffectPlaying = false;
 	}
 	
 	//Used to set up the averages for the comparison values.
