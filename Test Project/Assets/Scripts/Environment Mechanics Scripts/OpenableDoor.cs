@@ -7,6 +7,7 @@ public class OpenableDoor : MonoBehaviour {
     public float DoorOpenAngle = 90;
     public AudioClip openSound;
     public AudioClip closeSound;
+    public AudioClip lockedSound;
     public float doorVolume = 0.2f;
 	
 	public bool lockedDoor = false;
@@ -65,6 +66,7 @@ public class OpenableDoor : MonoBehaviour {
 				lockedDoor = false;
 				itemScript.useKey(doorNumber);
 			}
+            
 			else
 			{
 				//Close door
@@ -77,13 +79,18 @@ public class OpenableDoor : MonoBehaviour {
 				{
 					GetComponent<AudioSource>().PlayOneShot(openSound, doorVolume);
 				}
+
 				else
 				{
 					GetComponent<AudioSource>().PlayOneShot(closeSound, doorVolume);
 				}
 				open = !open;
 			}
-		}
+            else if (Input.GetKeyDown("f") && enter && itemScript.hasKey(doorNumber) == false)
+            {
+                GetComponent<AudioSource>().PlayOneShot(lockedSound, doorVolume);
+            }
+        }
 
     }
 

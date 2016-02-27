@@ -1,7 +1,5 @@
 Base path: C:/Program Files/Unity/Editor/Data
-Pipe name: \\.\pipe\UnityShaderCompiler-64bit-1-4476
+Pipe name: \\.\pipe\UnityShaderCompiler-64bit-1-7404
 Cmd: getPlatforms
-Cmd: compileSnippet
-  api=4 type=0 insize=982 outsize=4573 kw=DIRECTIONAL SHADOWS_OFF LIGHTMAP_OFF DIRLIGHTMAP_COMBINED DYNAMICLIGHTMAP_ON FOG_EXP _ALPHABLEND_ON pd= ok=1
-Cmd: compileSnippet
-  api=4 type=1 insize=982 outsize=11536 kw=DIRECTIONAL SHADOWS_OFF LIGHTMAP_OFF DIRLIGHTMAP_COMBINED DYNAMICLIGHTMAP_ON FOG_EXP _ALPHABLEND_ON pd= ok=1
+Cmd: preprocess
+  insize=1025 outsize=1840 ok=1
