@@ -48,9 +48,11 @@
      <Compile Include="Assets\ActivateStatic.cs" />
      <Compile Include="Assets\Billboarder.cs" />
      <Compile Include="Assets\FollowPlayer.cs" />
+     <Compile Include="Assets\FollowPlayerWithinRange.cs" />
      <Compile Include="Assets\FontChanger.cs" />
      <Compile Include="Assets\NooseBGMScript.cs" />
      <Compile Include="Assets\Pixelplacement\iTweenPath\iTweenPath.cs" />
+     <Compile Include="Assets\ProximityDetector.cs" />
      <Compile Include="Assets\Scripts\Environment Mechanics Scripts\CameraMovement.cs" />
      <Compile Include="Assets\Scripts\Environment Mechanics Scripts\ChangeTexture.cs" />
      <Compile Include="Assets\Scripts\Environment Mechanics Scripts\CrossFade.cs" />
