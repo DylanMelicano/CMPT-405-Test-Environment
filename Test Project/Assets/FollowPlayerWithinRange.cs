@@ -6,6 +6,7 @@ public class FollowPlayerWithinRange : MonoBehaviour {
     public Camera m_Camera;
     public int speed;
     public GameObject ProximityDetector;
+    public AudioClip bahamutCry;
 
     ProximityDetector proxDet;
     bool close = false;
@@ -28,6 +29,7 @@ public class FollowPlayerWithinRange : MonoBehaviour {
         if(close == true)
         {
             parent.transform.position = Vector3.MoveTowards(parent.transform.position, m_Camera.transform.position, speed * Time.deltaTime);
+            GetComponent<AudioSource>().PlayOneShot(bahamutCry, 0.8f);
         }
     }
 }
