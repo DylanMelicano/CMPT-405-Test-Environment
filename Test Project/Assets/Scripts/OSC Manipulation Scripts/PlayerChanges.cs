@@ -9,12 +9,13 @@ public class PlayerChanges : MonoBehaviour {
 	OSCReceiver mainReceiverScript;
 	Light playerTorch;	
 	
-	//Blend Practice
+	/** //Blend Practice
 	GameObject practiceWall;
 	CrossFade sample;	
 	public Texture sampleText;
+	public Material sampleMat;
 	Vector2 temp;
-	Vector2 tempTiling;
+	Vector2 tempTiling;**/
 	
 	//Check variables to see if changes will initiate or not.
 	public bool changeTorch = false;
@@ -27,7 +28,7 @@ public class PlayerChanges : MonoBehaviour {
 	
 	//bool cameraEffectPlaying = false;
 	
-	//float heartBeatTime = 0f;
+	float heartBeatTime = 0f;
 	//bool testCalc = false;
 	
 	public float prevAvg = 0f;
@@ -41,13 +42,14 @@ public class PlayerChanges : MonoBehaviour {
 		GameObject player = GameObject.FindWithTag("Player");
 		playerTorch = player.GetComponentInChildren<Light>();
 		
-		//Environment changes practice
+		/** //Environment changes practice
 		//Blend practice
 		practiceWall = GameObject.Find("PracticePlane");
 		sample = practiceWall.GetComponent<CrossFade>();
 		temp = new Vector2 (0f,0f);
 		tempTiling = new Vector2 (3f,1.5f);
-		
+		sample.setNewMaterial(sampleMat); //Set the first material to change to
+		**/
 	}
 	
 	// Update is called once per frame
@@ -55,8 +57,9 @@ public class PlayerChanges : MonoBehaviour {
 		/**heartBeatTime += Time.deltaTime;
 		if (heartBeatTime >= 5f) {
 				sample.CrossFadeTo(sampleText, temp, tempTiling);
+				//Set new materials to change to based on player's location in the maze
 				heartBeatTime = 0f;
-		}**/		
+		}	**/	
 		
 		if (checkAverages == true) {
 			if (currAvg > (prevAvg * 1.1f)) {

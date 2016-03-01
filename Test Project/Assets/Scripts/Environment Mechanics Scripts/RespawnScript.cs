@@ -59,4 +59,11 @@ public class RespawnScript : MonoBehaviour {
 	public void makeCheckPoint (Transform point) {
 		spawnPoint = point;
 	}
+	
+	public bool passedCheckPoint (string checkPoint) {
+		if (spawnPoint.name == checkPoint ) {
+			return true;
+		}
+		return false;
+	}
 }

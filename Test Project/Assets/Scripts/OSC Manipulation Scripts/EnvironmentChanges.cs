@@ -10,6 +10,9 @@ public class EnvironmentChanges : MonoBehaviour {
 	
 	public bool checkAvgEnv = false;	//Use to control the checking of averages in every frame update.
 	
+	//Respawn Script to check the location of the player
+	RespawnScript respawnLocation;
+	
 	//Maze Torchlight changes
 	GameObject[] torches;
 	Color baseTorch;
@@ -20,23 +23,47 @@ public class EnvironmentChanges : MonoBehaviour {
 	int currFlameColor = 0; // 0 is default. 1 is the dreaded/scarier color.
 	//public float duration = 1.5f;
 	
+	//Wall texture and material changes
+	CrossFade crossFadeScript;
+	Texture mainWallChange;
+	public Texture firstWallChange;
+	public Texture secondWallChange;
+	public Texture thirdWallChange;
+	
+	//first material contains default brick2 texture
+	public Material secondMaterial;	//base texture is firstWallChange
+	public Material thirdMaterial; //base texture is secondWallChange
+	public Material fourthMaterial; //base texture is thirdWallChange
+	
+	Vector2 wallOffset;
+	Vector2 wallTiling;
+	
 	float envTime = 0f;
 	
 	// Use this for initialization
 	void Start () {
 		hrvReceiverScript = GameObject.FindWithTag("MeasureObject").GetComponent<OSCReceiver>();
+		respawnLocation = GameObject.FindWithTag("Player").GetComponent<RespawnScript>();
 		
-		//Array of torches and the values of the colors
+		//Torch changing related variables
 		torches = GameObject.FindGameObjectsWithTag("Torch");
 		baseTorch = new Vector4(0.97f, 0.73f, 0.21f, 1);
 		dreadTorch = new Vector4(0.49f, 0.02f, 0.11f, 1);
 		flameBGM = GameObject.Find("MazeChanges/FlameChangeBGM").GetComponent<AudioSource>();
+	
+		//Wall changing related variables
+		crossFadeScript = GetComponent<CrossFade>();
+		wallOffset = new Vector2 (0f,0f);
+		wallTiling = new Vector2 (3f,1.5f);
+		mainWallChange = firstWallChange;
+		crossFadeScript.setNewMaterial(secondMaterial); //The first material it will change to
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		if (checkAvgEnv == true) {
 			if (currAvgEnv > (prevAvgEnv * 1.1f)) {
+				//Torch changes to dreader color
 				if (currFlameColor == 0) {
 					changeTorches (dreadTorch);
 					if (flameSoundPlaying == false) {
@@ -45,35 +72,60 @@ public class EnvironmentChanges : MonoBehaviour {
 					}
 					currFlameColor = 1;
 				}
+				//Walls change to next texture based on location and current material
+				//Once passed the area checkpoint, change the next texture and material to change to, as well as the 
+				//as well as return changing once again
+				crossFadeScript.crossFadeTo (mainWallChange, wallOffset, wallTiling);
+				/**if (respawnLocation.passedCheckPoint("CheckPoint1")) {
+					crossFadeScript.crossFadeTo (mainWallChange, wallOffset, wallTiling);
+				}**/
 				toggleEnvFlags();
 			} else if (currAvgEnv <= (prevAvgEnv * 0.9f)){
+				//torch changes back to normal
 				if (currFlameColor == 1) {
 					changeTorches (baseTorch);
 					currFlameColor = 0;
 				}
+				//Walls do not change back at all
 				toggleEnvFlags();
 			} else {
 				toggleEnvFlags();
 			}
 		}
+		
+		//Set of code to check player location, and change wall texture and materials accordingly
+		/**if (respawnLocation.passedCheckPoint("CheckPoint1")) {
+				
+		} else if (respawnLocation.passedCheckPoint("CheckPoint2")) {
+			mainWallChange = secondWallChange;
+			crossFadeScript.setNewMaterial(thirdMaterial);
+			crossFadeScript.resetWallChanging();
+		} else if (respawnLocation.passedCheckPoint("CheckPoint3")) {
+			mainWallChange = thirdWallChange;
+			crossFadeScript.setNewMaterial(fourthMaterial);
+			crossFadeScript.resetWallChanging();
+		}
 			
-			/**envTime += Time.deltaTime;
+			envTime += Time.deltaTime;
 			if (envTime >= 5f) {
-				changeTorches(dreadTorch);
+				crossFadeScript.crossFadeTo (firstWallChange, wallOffset, wallTiling);
 				envTime = 0f;
 			}**/
 	}
 	
+	//Toggle avergae check for environmen changes
 	public void toggleEnvCheck () {
 		checkAvgEnv = true;
 	}
 	
+	//Revert back the different flags to their default state
 	public void toggleEnvFlags () {
 		checkAvgEnv = false;
 		torchChanged = false;
 		flameSoundPlaying = false;
 	}
 	
+	//Function that handles the torch changes
 	public void changeTorches (Color secondColor) {
 		if (torchChanged == false) {
 			foreach (GameObject torch in torches) {

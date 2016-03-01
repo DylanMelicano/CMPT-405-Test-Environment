@@ -38,6 +38,8 @@ public class EndGame : MonoBehaviour {
 				soundPlaying = true;
 			}
 			if (this.GetComponent<AudioSource>().isPlaying == false) {
+				//SceneManager.LoadScene("Assets/Game Finish");
+				//Application.LoadLevel("Game Finish");
 				//load "Only darkness awaits for the trapped. Thank you for playing!" message
 				//preferably just a simple photoshop image GUI credit that takes like 5 minutes to do
 				//And have it fade it from a new scene.

@@ -19,6 +19,7 @@ public class MakeCheckPoint : MonoBehaviour {
 			RespawnScript spawnScript;
 			spawnScript = other.GetComponent<RespawnScript>();
 			spawnScript.makeCheckPoint(this.transform);
+			spawnScript.passedCheckPoint(this.name);
 		}
 	}
 }
