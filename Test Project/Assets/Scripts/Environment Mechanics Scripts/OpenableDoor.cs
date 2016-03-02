@@ -94,7 +94,27 @@ public class OpenableDoor : MonoBehaviour {
                 GetComponent<AudioSource>().PlayOneShot(lockedSound, doorVolume);
             }
         }
+        if (enter == true && open == true)
+        {
+            canvas.GetComponentInChildren<Text>().text = "Press 'F' to close the door";
+            //GUI.Label(new Rect(Screen.width / 2 - 75, Screen.height - 100, 170, 30), "Press 'F' to close the door");
+        }
+        else if (enter == true && open != true && lockedDoor == true)
+        {
+            canvas.GetComponentInChildren<Text>().text = "Press 'F' to use key to open the door";
+            //GUI.Label(new Rect(Screen.width / 2 - 75, Screen.height - 100, 170, 30), "Press 'F' to use key to open the door");
+        }
+        else if (enter == true && open != true)
+        {
+            canvas.GetComponentInChildren<Text>().text = "Press 'F' to open the door";
+            //GUI.Label(new Rect(Screen.width / 2 - 75, Screen.height - 100, 170, 30), "Press 'F' to open the door");
+        }
 
+    }
+
+    void lateUpdate()
+    {
+        
     }
 
     void OnTriggerEnter(Collider other)
@@ -114,18 +134,6 @@ public class OpenableDoor : MonoBehaviour {
 
     void OnGUI()
     {
-        if (enter == true && open == true)
-        {
-            //canvas.GetComponentInChildren<Text> =  "Press 'F' to close the door";
-            GUI.Label(new Rect(Screen.width / 2 - 75, Screen.height - 100, 170, 30), "Press 'F' to close the door");
-        }
-		else if (enter == true && open != true && lockedDoor == true)
-        {
-            GUI.Label(new Rect(Screen.width / 2 - 75, Screen.height - 100, 170, 30), "Press 'F' to use key to open the door");
-        }
-        else if (enter == true && open != true)
-        {
-            GUI.Label(new Rect(Screen.width / 2 - 75, Screen.height - 100, 170, 30), "Press 'F' to open the door");
-        }
+
     }
 }

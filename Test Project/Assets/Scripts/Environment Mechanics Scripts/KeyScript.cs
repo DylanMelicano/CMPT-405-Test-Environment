@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class KeyScript : MonoBehaviour {
 	
@@ -9,13 +10,17 @@ public class KeyScript : MonoBehaviour {
 	bool nearKey = false;
 	bool keyObtained;
 
+    Canvas canvas;
+
     public AudioClip keysound;
 	
 	// Use this for initialization
 	void Start () {
 		inventory = GameObject.Find("KeyInventory");
 		itemScript = inventory.GetComponent<InventoryScript>();
-	}
+
+        canvas = GameObject.Find("Canvas").GetComponent<Canvas>();
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -31,13 +36,23 @@ public class KeyScript : MonoBehaviour {
 		else if (itemScript.hasKey(keyNumber) == true) {
 			Debug.LogError ("Key already obtained");
 		}
-	}
+
+        if (nearKey)
+        {
+            canvas.GetComponentInChildren<Text>().text = "Press 'F' to take key";
+            //GUI.Label(new Rect(Screen.width / 2 - 75, Screen.height - 100, 170, 30), "Press 'F' to obtain key");
+        }
+    }
+
+    void lateUpdate()
+    {
+        
+    }
 	
 	void OnTriggerEnter (Collider other) {
 		if (other.CompareTag("Player")){
 			//Debug.Log ("Player Near key #" + (keyNumber+1));
 			nearKey = true;
-
         }
 	}
     void OnTriggerExit(Collider other)
@@ -49,11 +64,11 @@ public class KeyScript : MonoBehaviour {
         }
     }
 
-    void OnGUI()
+    /*void OnGUI()
     {
         if (nearKey)
         {
             GUI.Label(new Rect(Screen.width / 2 - 75, Screen.height - 100, 170, 30), "Press 'F' to obtain key");
         } 
-    }
+    }*/
 }

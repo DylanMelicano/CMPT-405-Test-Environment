@@ -81,6 +81,7 @@
      <Compile Include="Assets\Scripts\Scare Events Scripts\NooseDeath.cs" />
      <Compile Include="Assets\Scripts\Scare Events Scripts\SphereEvent.cs" />
      <Compile Include="Assets\Scripts\Scare Events Scripts\triggerMove.cs" />
+     <Compile Include="Assets\UIReset.cs" />
      <Compile Include="Assets\mazeGuardianBehaviour.cs" />
      <Compile Include="Assets\mazeGuardianMovement.cs" />
      <Compile Include="Assets\staticAnimator.cs" />
