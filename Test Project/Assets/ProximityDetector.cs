@@ -4,9 +4,10 @@ using System.Collections;
 public class ProximityDetector : MonoBehaviour {
 
     public bool close = false;
+    public bool hasCryed = false;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
 	
 	}
 	
@@ -20,6 +21,7 @@ public class ProximityDetector : MonoBehaviour {
         if (other.gameObject.tag == "Player")
         {
             close = true;
+            hasCryed = false;
         }
     }
     void OnTriggerExit(Collider other)

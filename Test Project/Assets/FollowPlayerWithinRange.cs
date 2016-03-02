@@ -10,13 +10,14 @@ public class FollowPlayerWithinRange : MonoBehaviour {
 
     ProximityDetector proxDet;
     bool close = false;
+    bool hasCryed;
     GameObject parent;
 
     // Use this for initialization
     void Start()
     {
         proxDet = ProximityDetector.GetComponent<ProximityDetector>();
-
+        hasCryed = proxDet.hasCryed;
         parent = transform.parent.gameObject;
     }
 
@@ -24,12 +25,17 @@ public class FollowPlayerWithinRange : MonoBehaviour {
     void Update()
     {
         close = proxDet.close;
+        hasCryed = proxDet.hasCryed;
         parent.transform.LookAt(parent.transform.position + m_Camera.transform.rotation * Vector3.up,
             m_Camera.transform.rotation * -Vector3.forward);
         if(close == true)
         {
             parent.transform.position = Vector3.MoveTowards(parent.transform.position, m_Camera.transform.position, speed * Time.deltaTime);
-            GetComponent<AudioSource>().PlayOneShot(bahamutCry, 0.8f);
+            if (hasCryed == false)
+            {
+                GetComponent<AudioSource>().PlayOneShot(bahamutCry, 0.8f);
+                proxDet.hasCryed = true;
+            }
         }
     }
 }

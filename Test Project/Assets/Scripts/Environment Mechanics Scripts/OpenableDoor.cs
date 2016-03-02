@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class OpenableDoor : MonoBehaviour {
 
@@ -15,6 +16,8 @@ public class OpenableDoor : MonoBehaviour {
 	GameObject inventory;
 	InventoryScript itemScript;
 
+    Canvas canvas;
+
     private bool open;
     private bool enter;
 
@@ -25,7 +28,7 @@ public class OpenableDoor : MonoBehaviour {
 	void Start () {
         defaultRot = transform.eulerAngles;
         openRot = new Vector3(defaultRot.x, defaultRot.y + DoorOpenAngle, defaultRot.z);
-		
+        canvas = GameObject.Find("Canvas").GetComponent<Canvas>();
 		inventory = GameObject.Find("KeyInventory");
 		itemScript = inventory.GetComponent<InventoryScript>();
     }
@@ -113,6 +116,7 @@ public class OpenableDoor : MonoBehaviour {
     {
         if (enter == true && open == true)
         {
+            //canvas.GetComponentInChildren<Text> =  "Press 'F' to close the door";
             GUI.Label(new Rect(Screen.width / 2 - 75, Screen.height - 100, 170, 30), "Press 'F' to close the door");
         }
 		else if (enter == true && open != true && lockedDoor == true)
