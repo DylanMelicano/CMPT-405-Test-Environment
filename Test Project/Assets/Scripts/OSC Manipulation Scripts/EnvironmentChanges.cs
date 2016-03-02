@@ -13,6 +13,9 @@ public class EnvironmentChanges : MonoBehaviour {
 	//Respawn Script to check the location of the player
 	RespawnScript respawnLocation;
 	
+	//Pillar Room Event that makes delusions of enemies
+	PillarRoomEvent pillarRoom;
+	
 	//Maze Torchlight changes
 	GameObject[] torches;
 	Color baseTorch;
@@ -38,12 +41,17 @@ public class EnvironmentChanges : MonoBehaviour {
 	Vector2 wallOffset;
 	Vector2 wallTiling;
 	
+	bool passedCheckPoint1 = false;
+	bool passedCheckPoint2 = false;
+	bool passedCheckPoint3 = false;
+	
 	float envTime = 0f;
 	
 	// Use this for initialization
 	void Start () {
 		hrvReceiverScript = GameObject.FindWithTag("MeasureObject").GetComponent<OSCReceiver>();
 		respawnLocation = GameObject.FindWithTag("Player").GetComponent<RespawnScript>();
+		pillarRoom = GameObject.FindWithTag("PillarEvent").GetComponent<PillarRoomEvent>();
 		
 		//Torch changing related variables
 		torches = GameObject.FindGameObjectsWithTag("Torch");
@@ -79,6 +87,10 @@ public class EnvironmentChanges : MonoBehaviour {
 				/**if (respawnLocation.passedCheckPoint("CheckPoint1")) {
 					crossFadeScript.crossFadeTo (mainWallChange, wallOffset, wallTiling);
 				}**/
+				
+				//Add more enemies (delusions of enemies) in the pillar room based on high HRV
+				//pillarRoom.enableDelusions();
+				
 				toggleEnvFlags();
 			} else if (currAvgEnv <= (prevAvgEnv * 0.9f)){
 				//torch changes back to normal
@@ -94,23 +106,29 @@ public class EnvironmentChanges : MonoBehaviour {
 		}
 		
 		//Set of code to check player location, and change wall texture and materials accordingly
-		/**if (respawnLocation.passedCheckPoint("CheckPoint1")) {
-				
-		} else if (respawnLocation.passedCheckPoint("CheckPoint2")) {
+		/**if (respawnLocation.passedCheckPoint("CheckPoint1") && passedCheckPoint1 == false) {
+			passedCheckPoint1 = true;	
+		}
+
+		if (respawnLocation.passedCheckPoint("CheckPoint2") && passedCheckPoint2 == false) {
 			mainWallChange = secondWallChange;
 			crossFadeScript.setNewMaterial(thirdMaterial);
 			crossFadeScript.resetWallChanging();
-		} else if (respawnLocation.passedCheckPoint("CheckPoint3")) {
+			passedCheckPoint2 = true;
+		} 
+		
+		if (respawnLocation.passedCheckPoint("CheckPoint3") && passedCheckPoint3 == false) {
 			mainWallChange = thirdWallChange;
 			crossFadeScript.setNewMaterial(fourthMaterial);
 			crossFadeScript.resetWallChanging();
-		}
+			passedCheckPoint3 = true;
+		}**/
 			
 			envTime += Time.deltaTime;
 			if (envTime >= 5f) {
-				crossFadeScript.crossFadeTo (firstWallChange, wallOffset, wallTiling);
+				pillarRoom.enableDelusions();
 				envTime = 0f;
-			}**/
+			}
 	}
 	
 	//Toggle avergae check for environmen changes

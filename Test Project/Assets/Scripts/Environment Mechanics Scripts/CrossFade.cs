@@ -59,8 +59,7 @@ public class CrossFade : MonoBehaviour
 		//yield return new WaitForSeconds(10f);
 		foreach (GameObject wall in changingWalls) {
 			wall.GetComponent<Renderer>().material.SetFloat( "_Blend", fader );
-		}
-    
+		}    
       
 		if ( fader >= 1.0f )
 		{

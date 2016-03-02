@@ -20,11 +20,17 @@ public class PillarRoomEvent : MonoBehaviour {
 	InventoryScript invScript;
 	AudioSource roomAudio;
     public GameObject pillarGuardian;
+	public GameObject pillarDelusion1;
+	public GameObject pillarDelusion2;
+	public GameObject pillarDelusion3;
 	
 	bool soundPlaying = false;
 	bool allRotating = false;
     bool guardianSpawned = false;
-	
+	bool createDelusions = false;
+	bool delusionActive1 = false;
+	bool delusionActive2 = false;
+	bool delusionActive3 = false;
 
 	// Use this for initialization
 	void Start () {
@@ -44,6 +50,21 @@ public class PillarRoomEvent : MonoBehaviour {
                 pillarGuardian.SetActive(true);
                 guardianSpawned = true;
             }
+			
+			if (createDelusions == true) {
+				if (delusionActive1 == false) {
+					pillarDelusion1.SetActive(true);
+					delusionActive1 = true;
+				} else if (delusionActive2 == false) {
+					pillarDelusion2.SetActive(true);
+					delusionActive2 = true;
+				} else if (delusionActive3 == false) {
+					pillarDelusion3.SetActive(true);
+					delusionActive3 = true;
+				}
+				createDelusions = false;
+			}
+			
             if (RenderSettings.ambientIntensity < 0f) {
 				RenderSettings.ambientIntensity += 0.01f;
 			} else {
@@ -95,4 +116,8 @@ public class PillarRoomEvent : MonoBehaviour {
         roomAudio.Stop();
         soundPlaying = false;
     }
+	
+	public void enableDelusions () {
+		createDelusions = true;		
+	}
 }

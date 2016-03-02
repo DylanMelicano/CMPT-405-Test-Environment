@@ -30,4 +30,10 @@ public class KillScript : MonoBehaviour {
             hasDied = true;
 		}
 	}
+	
+	void OnCollisionEnter (Collision other) {
+		if (other.collider.tag == "Player"){
+			hasDied = true;
+		}
+	}
 }
