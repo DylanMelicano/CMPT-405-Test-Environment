@@ -70,7 +70,7 @@ public class EnvironmentChanges : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (checkAvgEnv == true) {
-			if (currAvgEnv > (prevAvgEnv * 1.1f)) {
+			if (currAvgEnv > (prevAvgEnv * 1.002f)) {
 				//Torch changes to dreader color
 				if (currFlameColor == 0) {
 					changeTorches (dreadTorch);
@@ -92,7 +92,7 @@ public class EnvironmentChanges : MonoBehaviour {
 				//pillarRoom.enableDelusions();
 				
 				toggleEnvFlags();
-			} else if (currAvgEnv <= (prevAvgEnv * 0.9f)){
+			} else if (currAvgEnv <= (prevAvgEnv * 1.002f)){
 				//torch changes back to normal
 				if (currFlameColor == 1) {
 					changeTorches (baseTorch);

@@ -58,7 +58,7 @@ public class OSCReceiver : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		calibrationTime = calibrationTime + Time.deltaTime;
-		if (calibrationTime >= 10f && calculated == false) {
+		if (calibrationTime >= 1f && calculated == false) {
 
 			//Debug.Log ("Ten seconds have passed. Number of Readings: " + numOfReadings + " test Reading: " + testNumber + " Checking array content: " + testNumberCheck + " Average of Readings: " + averageRates());			
 			prevAverage = currAverage;
