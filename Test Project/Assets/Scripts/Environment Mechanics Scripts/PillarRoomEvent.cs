@@ -113,6 +113,16 @@ public class PillarRoomEvent : MonoBehaviour {
             pillar.GetComponent<rotateMe>().enabled = false;
         }
         pillarGuardian.SetActive(false);
+		
+		if (delusionActive1 == true) {
+			pillarDelusion1.SetActive(false);
+		} 
+		if (delusionActive2 == true) {
+			pillarDelusion2.SetActive(false);
+		}
+		if (delusionActive3 == true) {
+			pillarDelusion3.SetActive(false);
+		}
         roomAudio.Stop();
         soundPlaying = false;
     }

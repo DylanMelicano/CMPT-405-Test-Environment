@@ -24,6 +24,8 @@ public class EnvironmentChanges : MonoBehaviour {
 	AudioSource flameBGM;
 	bool flameSoundPlaying = false;
 	int currFlameColor = 0; // 0 is default. 1 is the dreaded/scarier color.
+	int currRand;
+	int prevRand = 0;
 	//public float duration = 1.5f;
 	
 	//Wall texture and material changes
@@ -74,7 +76,8 @@ public class EnvironmentChanges : MonoBehaviour {
 				//Torch changes to dreader color
 				if (currFlameColor == 0) {
 					changeTorches (dreadTorch);
-					if (flameSoundPlaying == false) {
+					randomNum();
+					if (flameSoundPlaying == false && currRand == 1 ) {
 						flameBGM.Play();
 						flameSoundPlaying = true;
 					}
@@ -154,6 +157,15 @@ public class EnvironmentChanges : MonoBehaviour {
 			//flameBGM.Play();
 			torchChanged = true;
 		}
+	}
+	
+	//Play the torch bgm randomly.
+	void randomNum() {
+        currRand = Random.Range(1, 3);
+        if (currRand == prevRand)
+        {
+            randomNum();
+        }
 	}
 	
 	//Used to set up the averages for the comparison values.

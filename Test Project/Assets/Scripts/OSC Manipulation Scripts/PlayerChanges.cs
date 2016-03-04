@@ -62,13 +62,13 @@ public class PlayerChanges : MonoBehaviour {
 		}	**/	
 		
 		if (checkAverages == true) {
-			if (currAvg > (prevAvg * 1.1f)) {
+			if (currAvg > (prevAvg * 1.002f)) {
 				reduceTorchlight();
 				if (heartSoundPlaying == false) {
 					GetComponent<AudioSource>().Play();
 					heartSoundPlaying = true;
 				}
-			} else if (currAvg <= (prevAvg * 0.9f)){
+			} else if (currAvg <= (prevAvg * 1.002f)){
 				increaseTorchlight();
 				heartSoundPlaying = false;
 			} else {
