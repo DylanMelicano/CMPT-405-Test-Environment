@@ -13,8 +13,8 @@ public class OSCReceiver : MonoBehaviour {
 	private Osc handler;
 	
 	//VARIABLES YOU WANT TO BE ANIMATED
-	private float yRot = 0f; //the rotation around the y axis
-	private float  textureValue = 0f;
+	//private float yRot = 0f; //the rotation around the y axis
+	//private float  textureValue = 0f;
 	
 	//VARIABLES TO COMPUTE AVERAGE 
 	float[] stackOfRates;
@@ -172,13 +172,13 @@ public class OSCReceiver : MonoBehaviour {
 	}
 	
 	//FUNCTIONS CALLED BY MATCHING A SPECIFIC MESSAGE IN THE ALLMESSAGEHANDLER FUNCTION
-    public void Rotate(float msgValue) //rotate the cube around its axis
-    {
-        yRot = msgValue;
-    }
-
     //Change Texture Heartbeat value
-    public void ChangeTextureHeartValue(float msgValue) {
+    /**public void ChangeTextureHeartValue(float msgValue) {
         textureValue = msgValue;
     }
+	
+	public void Rotate(float msgValue) //rotate the cube around its axis
+    {
+        yRot = msgValue;
+    }**/
 }

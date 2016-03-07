@@ -33,7 +33,9 @@ public class EnvironmentChanges : MonoBehaviour {
 	Texture mainWallChange;
 	public Texture firstWallChange;
 	public Texture secondWallChange;
+	bool usedSecondChange = false;
 	public Texture thirdWallChange;
+	bool usedThirdChange = false;
 	
 	//first material contains default brick2 texture
 	public Material secondMaterial;	//base texture is firstWallChange
@@ -42,11 +44,7 @@ public class EnvironmentChanges : MonoBehaviour {
 	
 	Vector2 wallOffset;
 	Vector2 wallTiling;
-	
-	bool passedCheckPoint1 = false;
-	bool passedCheckPoint2 = false;
-	bool passedCheckPoint3 = false;
-	
+
 	float envTime = 0f;
 	
 	// Use this for initialization
@@ -83,55 +81,53 @@ public class EnvironmentChanges : MonoBehaviour {
 					}
 					currFlameColor = 1;
 				}
-				//Walls change to next texture based on location and current material
-				//Once passed the area checkpoint, change the next texture and material to change to, as well as the 
-				//as well as return changing once again
+				//Walls change as heart rate increases due to being scared.
 				crossFadeScript.crossFadeTo (mainWallChange, wallOffset, wallTiling);
-				/**if (respawnLocation.passedCheckPoint("CheckPoint1")) {
-					crossFadeScript.crossFadeTo (mainWallChange, wallOffset, wallTiling);
-				}**/
 				
 				//Add more enemies (delusions of enemies) in the pillar room based on high HRV
-				//pillarRoom.enableDelusions();
+				pillarRoom.enableDelusions();
 				
 				toggleEnvFlags();
-			} else if (currAvgEnv <= (prevAvgEnv * 1.002f)){
+			} else if (currAvgEnv <= (prevAvgEnv * 1.002f)){  //Should still be *0.something equivalent of high heart rate value
 				//torch changes back to normal
 				if (currFlameColor == 1) {
 					changeTorches (baseTorch);
 					currFlameColor = 0;
 				}
-				//Walls do not change back at all
 				toggleEnvFlags();
-			} else {
+			} else { //When the value is near the previous average (initially anyways)
 				toggleEnvFlags();
 			}
 		}
 		
+		/**envTime += Time.deltaTime;
+			if (envTime >= 1f) {
+				//pillarRoom.enableDelusions();
+				crossFadeScript.crossFadeTo (mainWallChange, wallOffset, wallTiling);
+				envTime = 0f;
+			}
+		
+		if (crossFadeScript.hasWallsChanged() == true && respawnLocation.passedCheckPoint1 == true) {
+			CheckPoint1Change = true;
+		} 
+		
+		if (crossFadeScript.hasWallsChanged() == true && respawnLocation.passedCheckPoint2 == true) {
+			CheckPoint2Change = true;
+		} **/
+		
 		//Set of code to check player location, and change wall texture and materials accordingly
-		/**if (respawnLocation.passedCheckPoint("CheckPoint1") && passedCheckPoint1 == false) {
-			passedCheckPoint1 = true;	
-		}
-
-		if (respawnLocation.passedCheckPoint("CheckPoint2") && passedCheckPoint2 == false) {
+		//Based on the activated bool flags, change to the corresponding wall textures
+		if (crossFadeScript.hasWallsChanged() == true && respawnLocation.passedCheckPoint1 == true && usedSecondChange == false) {
 			mainWallChange = secondWallChange;
 			crossFadeScript.setNewMaterial(thirdMaterial);
 			crossFadeScript.resetWallChanging();
-			passedCheckPoint2 = true;
-		} 
-		
-		if (respawnLocation.passedCheckPoint("CheckPoint3") && passedCheckPoint3 == false) {
+			usedSecondChange = true;
+		} else if (crossFadeScript.hasWallsChanged() == true && respawnLocation.passedCheckPoint2 == true && usedThirdChange == false) {
 			mainWallChange = thirdWallChange;
 			crossFadeScript.setNewMaterial(fourthMaterial);
 			crossFadeScript.resetWallChanging();
-			passedCheckPoint3 = true;
-		}**/
-			
-			envTime += Time.deltaTime;
-			if (envTime >= 5f) {
-				pillarRoom.enableDelusions();
-				envTime = 0f;
-			}
+			usedThirdChange = true;
+		}
 	}
 	
 	//Toggle avergae check for environmen changes
@@ -150,7 +146,7 @@ public class EnvironmentChanges : MonoBehaviour {
 	public void changeTorches (Color secondColor) {
 		if (torchChanged == false) {
 			foreach (GameObject torch in torches) {
-				Color baseColor = torch.GetComponentInChildren<Light>().color;
+				//Color baseColor = torch.GetComponentInChildren<Light>().color;
 				torch.GetComponentInChildren<ParticleSystem>().startColor = secondColor;
 				torch.GetComponentInChildren<Light>().color = secondColor; //Color.Lerp (baseColor, secondColor, Time.deltaTime * duration);
 			}

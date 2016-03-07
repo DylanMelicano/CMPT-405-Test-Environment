@@ -7,6 +7,10 @@ public class RespawnScript : MonoBehaviour {
 	private bool respawn = false;
 	public bool playerDead = false;
 	
+	public bool passedCheckPoint1 = false;
+	public bool passedCheckPoint2 = false;
+	public bool passedCheckPoint3 = false;
+	
 	ExampleMovement move;
 	CameraMovement playerCamera;
     staticAnimator staticScript;
@@ -60,10 +64,17 @@ public class RespawnScript : MonoBehaviour {
 		spawnPoint = point;
 	}
 	
-	public bool passedCheckPoint (string checkPoint) {
-		if (spawnPoint.name == checkPoint ) {
+	public void passedCheckPoint (string checkPoint) {
+		if (checkPoint == "CheckPoint1") {
+			passedCheckPoint1 = true;
+		} else if (checkPoint == "CheckPoint2") {
+			passedCheckPoint2 = true;
+		} else if (checkPoint == "CheckPoint3") {
+			passedCheckPoint3 = true;
+		}
+		/**if (spawnPoint.name == checkPoint ) {
 			return true;
 		}
-		return false;
+		return false;**/
 	}
 }
