@@ -12,8 +12,8 @@ public class UIReset : MonoBehaviour {
     }
 	
 	// Update is called once per frame
-	void Update () {
-        //canvas.GetComponentInChildren<Text>().text = "";
+	void FixedUpdate () {
+        canvas.GetComponentInChildren<Text>().text = "";
     }
 
     void onGUI()

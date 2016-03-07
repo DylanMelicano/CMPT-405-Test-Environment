@@ -109,6 +109,10 @@ public class OpenableDoor : MonoBehaviour {
             canvas.GetComponentInChildren<Text>().text = "Press 'F' to open the door";
             //GUI.Label(new Rect(Screen.width / 2 - 75, Screen.height - 100, 170, 30), "Press 'F' to open the door");
         }
+        //else if(enter == false)
+        //{
+        //    canvas.GetComponentInChildren<Text>().text = "";
+        //}
 
     }
 
