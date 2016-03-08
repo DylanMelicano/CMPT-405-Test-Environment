@@ -44,6 +44,9 @@ public class EnvironmentChanges : MonoBehaviour {
 	
 	Vector2 wallOffset;
 	Vector2 wallTiling;
+	
+	//Enemy Range Manipulation and possible change texture
+	
 
 	float envTime = 0f;
 	

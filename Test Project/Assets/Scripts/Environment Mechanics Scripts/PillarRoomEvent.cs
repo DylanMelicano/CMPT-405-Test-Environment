@@ -23,8 +23,6 @@ public class PillarRoomEvent : MonoBehaviour {
 	public GameObject pillarDelusion1;
 	public GameObject pillarDelusion2;
 	public GameObject pillarDelusion3;
-	public GameObject pillarDelusion4;
-	public GameObject pillarDelusion5;
 	
 	bool soundPlaying = false;
 	bool allRotating = false;

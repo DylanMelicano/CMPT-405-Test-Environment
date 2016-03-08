@@ -10,6 +10,7 @@ public class EndGame : MonoBehaviour {
 	
 	public AudioClip finalLaugh; 
 	public Color darkness = new Color(0f, 0f, 0f, 1.0f);
+	public GameObject MazeBGM;
 	GameObject player;
 
 	// Use this for initialization
@@ -33,16 +34,15 @@ public class EndGame : MonoBehaviour {
 		}
 		
 		if (blackOutDone) {
+			if (MazeBGM.GetComponent<AudioSource>().volume > 0f) {
+				MazeBGM.GetComponent<AudioSource>().volume -= 0.001f;
+			}
 			if (soundPlaying == false) {
 				this.GetComponent<AudioSource>().PlayOneShot(finalLaugh);
 				soundPlaying = true;
 			}
 			if (this.GetComponent<AudioSource>().isPlaying == false) {
-				//SceneManager.LoadScene("Assets/Game Finish");
-				//Application.LoadLevel("Game Finish");
-				//load "Only darkness awaits for the trapped. Thank you for playing!" message
-				//preferably just a simple photoshop image GUI credit that takes like 5 minutes to do
-				//And have it fade it from a new scene.
+				Application.LoadLevel("Game Finish");
 			}
 		}
 	}

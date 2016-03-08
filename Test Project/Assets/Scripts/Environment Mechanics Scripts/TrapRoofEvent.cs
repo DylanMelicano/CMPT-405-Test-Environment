@@ -27,7 +27,7 @@ public class TrapRoofEvent : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (exitIdleZone == true && invScript.hasKey(2)) {
-			if (trapRoof.transform.position.y > -3.6f) {
+			if (trapRoof.transform.position.y > -10f) {	//3.6f
 				Vector3 temp = new Vector3(0,0.007f,0);
 				trapRoof.transform.position -= temp;
 				
