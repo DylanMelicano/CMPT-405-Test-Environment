@@ -31,4 +31,20 @@ public class ProximityDetector : MonoBehaviour {
             close = false;
         }
     }
+
+    /**void OnCollisionEnter(Collision other)
+    {
+        if (other.collider.tag == "Player")
+        {
+            close = true;
+            hasCryed = false;
+        }
+    }
+    void OnCollisionExit(Collision other)
+    {
+        if (other.collider.tag == "Player")
+        {
+            close = false;
+        }
+    }**/
 }
