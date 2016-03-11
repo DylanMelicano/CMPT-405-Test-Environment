@@ -42,8 +42,34 @@ public class EnvironmentChanges : MonoBehaviour {
 	public Material thirdMaterial; //base texture is secondWallChange
 	public Material fourthMaterial; //base texture is thirdWallChange
 	
+	public Material secondThreshMaterial;	//base texture is firstWallChange
+	public Material thirdThreshMaterial; //base texture is secondWallChange
+	public Material fourthThreshMaterial; //base texture is thirdWallChange
+	
+	public Material secondSmallWallMaterial;	//base texture is firstWallChange
+	public Material thirdSmallWallMaterial; //base texture is secondWallChange
+	public Material fourthSmallWallMaterial; //base texture is thirdWallChange
+	
+	public Material secondTinyWallMaterial;	//base texture is firstWallChange
+	public Material thirdTinyWallMaterial; //base texture is secondWallChange
+	public Material fourthTinyWallMaterial; //base texture is thirdWallChange
+	
+	
+	//Normal and many walls
 	Vector2 wallOffset;
 	Vector2 wallTiling;
+	
+	//Threshold door textures
+	Vector2 threshWallOffset;
+	Vector2 threshWallTiling;
+	
+	//Smaller Walls
+	Vector2 smallWallOffset;
+	Vector2 smallWallTiling;
+	
+	//Tiny Walls
+	Vector2 tinyWallOffset;
+	Vector2 tinyWallTiling;
 	
 	//Enemy Range Manipulation and possible change texture
 	
@@ -64,10 +90,21 @@ public class EnvironmentChanges : MonoBehaviour {
 	
 		//Wall changing related variables
 		crossFadeScript = GetComponent<CrossFade>();
+		
 		wallOffset = new Vector2 (0f,0f);
 		wallTiling = new Vector2 (3f,1.5f);
+		
+		threshWallTiling = new Vector2 (-0.19f, 1.5f); //Brick1
+		threshWallOffset = new Vector2 (0.6f,0f);
+		
+		smallWallTiling = new Vector2 (2f, 1.5f); //Brick3
+		smallWallOffset = new Vector2 (0f,0f);
+		
+		tinyWallTiling = new Vector2 (1.2f, 1.5f); //Brick4
+		tinyWallOffset = new Vector2 (0f,0f);
+		
 		mainWallChange = firstWallChange;
-		crossFadeScript.setNewMaterial(secondMaterial); //The first material it will change to
+		crossFadeScript.setNewMaterial(secondMaterial, secondSmallWallMaterial, secondTinyWallMaterial, secondThreshMaterial); //The first set of materials it will change to
 	}
 	
 	// Update is called once per frame
@@ -85,7 +122,8 @@ public class EnvironmentChanges : MonoBehaviour {
 					currFlameColor = 1;
 				}
 				//Walls change as heart rate increases due to being scared.
-				crossFadeScript.crossFadeTo (mainWallChange, wallOffset, wallTiling);
+				//crossFadeScript.crossFadeTo (mainWallChange, wallOffset, wallTiling);
+				crossFadeScript.crossFadeTo (mainWallChange, wallOffset, wallTiling, smallWallOffset, smallWallTiling, tinyWallOffset, tinyWallTiling, threshWallOffset, threshWallTiling);
 				
 				//Add more enemies (delusions of enemies) in the pillar room based on high HRV
 				pillarRoom.enableDelusions();
@@ -106,20 +144,22 @@ public class EnvironmentChanges : MonoBehaviour {
 		/**envTime += Time.deltaTime;
 			if (envTime >= 1f) {
 				//pillarRoom.enableDelusions();
-				crossFadeScript.crossFadeTo (mainWallChange, wallOffset, wallTiling);
+				crossFadeScript.crossFadeTo (mainWallChange, wallOffset, wallTiling, smallWallOffset, smallWallTiling, tinyWallOffset, tinyWallTiling, threshWallOffset, threshWallTiling);
 				envTime = 0f;
 			}
 		
-		if (crossFadeScript.hasWallsChanged() == true && respawnLocation.passedCheckPoint1 == true) {
+		/**if (crossFadeScript.hasWallsChanged() == true && respawnLocation.passedCheckPoint1 == true) {
 			CheckPoint1Change = true;
 		} 
 		
 		if (crossFadeScript.hasWallsChanged() == true && respawnLocation.passedCheckPoint2 == true) {
 			CheckPoint2Change = true;
-		} **/
+		} 
 		
 		//Set of code to check player location, and change wall texture and materials accordingly
 		//Based on the activated bool flags, change to the corresponding wall textures
+		//Add code for the other walls (and their corresponding materials and stuff as well)
+		//The tricky part: The tiling and offset for the other stuff when they come (if they have different tillings and offsets that is)
 		if (crossFadeScript.hasWallsChanged() == true && respawnLocation.passedCheckPoint1 == true && usedSecondChange == false) {
 			mainWallChange = secondWallChange;
 			crossFadeScript.setNewMaterial(thirdMaterial);
@@ -130,7 +170,7 @@ public class EnvironmentChanges : MonoBehaviour {
 			crossFadeScript.setNewMaterial(fourthMaterial);
 			crossFadeScript.resetWallChanging();
 			usedThirdChange = true;
-		}
+		}**/
 	}
 	
 	//Toggle avergae check for environmen changes
