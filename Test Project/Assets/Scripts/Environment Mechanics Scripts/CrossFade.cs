@@ -30,9 +30,6 @@ public class CrossFade : MonoBehaviour
   public Material nextThreshWallMaterial;
   public Material nextSmallWallMaterial;
   public Material nextTinyWallMaterial;
-  /**public Material secondWall;
-  public Material thirdWall;
-  public Material fourthWall;**/
   
   public bool wallsChanged = false;  
     
@@ -196,13 +193,6 @@ public class CrossFade : MonoBehaviour
 	  trigger = false;
     } 	  
   }
-  
-  				//confirmed you can check textures using this
-				//We can use this to thus switch materials (each with the set of textures) when the blending has finished
-				
-				//having this trigger false in the bottom also controls how much blends happen
-				//Each frame
-				//Gradual appearance of the second texture
   
   //Set the material that you want to change into after blending is finished
   public void setNewMaterial (Material nextMaterial, Material nextSmallWallMat, Material nextTinyWallMat, Material nextThreshMat) {

@@ -72,7 +72,8 @@ public class EnvironmentChanges : MonoBehaviour {
 	Vector2 tinyWallTiling;
 	
 	//Enemy Range Manipulation and possible change texture
-	
+	GameObject endEnemyRadius;
+	//GameObject[] enemyDetectors;
 
 	float envTime = 0f;
 	
@@ -105,6 +106,11 @@ public class EnvironmentChanges : MonoBehaviour {
 		
 		mainWallChange = firstWallChange;
 		crossFadeScript.setNewMaterial(secondMaterial, secondSmallWallMaterial, secondTinyWallMaterial, secondThreshMaterial); //The first set of materials it will change to
+	
+		//Enemy range manipulation and such
+		endEnemyRadius = GameObject.Find("End Guardian 1/ProximityDetector");
+		//enemyDetectors = GameObject.FindGameObjectsWithTag("EnemyDetectors");
+	
 	}
 	
 	// Update is called once per frame
@@ -123,11 +129,18 @@ public class EnvironmentChanges : MonoBehaviour {
 				}
 				//Walls change as heart rate increases due to being scared.
 				//crossFadeScript.crossFadeTo (mainWallChange, wallOffset, wallTiling);
-				crossFadeScript.crossFadeTo (mainWallChange, wallOffset, wallTiling, smallWallOffset, smallWallTiling, tinyWallOffset, tinyWallTiling, threshWallOffset, threshWallTiling);
+				//crossFadeScript.crossFadeTo (mainWallChange, wallOffset, wallTiling, smallWallOffset, smallWallTiling, tinyWallOffset, tinyWallTiling, threshWallOffset, threshWallTiling);
 				
 				//Add more enemies (delusions of enemies) in the pillar room based on high HRV
 				pillarRoom.enableDelusions();
 				
+				//change enemy range radius
+				endEnemyRadius.GetComponent<SphereCollider>().radius = 32f;
+				/**
+				foreach (GameObject enemyRange in enemyDetectors) {
+					enemyRange.GetComponent<SphereCollider>().radius = 32f;
+				}
+				**/
 				toggleEnvFlags();
 			} else if (currAvgEnv <= (prevAvgEnv * 1.002f)){  //Should still be *0.something equivalent of high heart rate value
 				//torch changes back to normal
@@ -135,42 +148,39 @@ public class EnvironmentChanges : MonoBehaviour {
 					changeTorches (baseTorch);
 					currFlameColor = 0;
 				}
+				//reset enemy range radius
+				endEnemyRadius.GetComponent<SphereCollider>().radius = 25f;
+				/**
+				foreach (GameObject enemyRange in enemyDetectors) {
+					enemyRange.GetComponent<SphereCollider>().radius = 25f;
+				}
+				**/
 				toggleEnvFlags();
 			} else { //When the value is near the previous average (initially anyways)
 				toggleEnvFlags();
 			}
 		}
 		
-		/**envTime += Time.deltaTime;
+		envTime += Time.deltaTime;
 			if (envTime >= 1f) {
 				//pillarRoom.enableDelusions();
 				crossFadeScript.crossFadeTo (mainWallChange, wallOffset, wallTiling, smallWallOffset, smallWallTiling, tinyWallOffset, tinyWallTiling, threshWallOffset, threshWallTiling);
 				envTime = 0f;
 			}
 		
-		/**if (crossFadeScript.hasWallsChanged() == true && respawnLocation.passedCheckPoint1 == true) {
-			CheckPoint1Change = true;
-		} 
-		
-		if (crossFadeScript.hasWallsChanged() == true && respawnLocation.passedCheckPoint2 == true) {
-			CheckPoint2Change = true;
-		} 
-		
 		//Set of code to check player location, and change wall texture and materials accordingly
-		//Based on the activated bool flags, change to the corresponding wall textures
-		//Add code for the other walls (and their corresponding materials and stuff as well)
 		//The tricky part: The tiling and offset for the other stuff when they come (if they have different tillings and offsets that is)
 		if (crossFadeScript.hasWallsChanged() == true && respawnLocation.passedCheckPoint1 == true && usedSecondChange == false) {
 			mainWallChange = secondWallChange;
-			crossFadeScript.setNewMaterial(thirdMaterial);
+			crossFadeScript.setNewMaterial(thirdMaterial, thirdSmallWallMaterial,thirdTinyWallMaterial, thirdThreshMaterial); 
 			crossFadeScript.resetWallChanging();
 			usedSecondChange = true;
 		} else if (crossFadeScript.hasWallsChanged() == true && respawnLocation.passedCheckPoint2 == true && usedThirdChange == false) {
 			mainWallChange = thirdWallChange;
-			crossFadeScript.setNewMaterial(fourthMaterial);
+			crossFadeScript.setNewMaterial(fourthMaterial, fourthSmallWallMaterial, fourthTinyWallMaterial, fourthThreshMaterial); 
 			crossFadeScript.resetWallChanging();
 			usedThirdChange = true;
-		}**/
+		}
 	}
 	
 	//Toggle avergae check for environmen changes
@@ -193,7 +203,6 @@ public class EnvironmentChanges : MonoBehaviour {
 				torch.GetComponentInChildren<ParticleSystem>().startColor = secondColor;
 				torch.GetComponentInChildren<Light>().color = secondColor; //Color.Lerp (baseColor, secondColor, Time.deltaTime * duration);
 			}
-			//flameBGM.Play();
 			torchChanged = true;
 		}
 	}
