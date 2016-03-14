@@ -28,7 +28,7 @@ public class TrapRoofEvent : MonoBehaviour {
 	void Update () {
 		if (exitIdleZone == true && invScript.hasKey(2)) {
 			if (trapRoof.transform.position.y > -10f) {	//3.6f
-				Vector3 temp = new Vector3(0,0.007f,0);
+				Vector3 temp = new Vector3(0,0.005f,0);
 				trapRoof.transform.position -= temp;
 				
 				if (audioPlaying == false) {

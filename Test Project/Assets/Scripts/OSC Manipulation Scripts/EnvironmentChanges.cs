@@ -73,7 +73,10 @@ public class EnvironmentChanges : MonoBehaviour {
 	
 	//Enemy Range Manipulation and possible change texture
 	GameObject endEnemyRadius;
-	//GameObject[] enemyDetectors;
+    //GameObject[] enemyDetectors;
+
+    //Terrain changer
+     public Terrain floor;
 
 	float envTime = 0f;
 	
@@ -129,7 +132,7 @@ public class EnvironmentChanges : MonoBehaviour {
 				}
 				//Walls change as heart rate increases due to being scared.
 				//crossFadeScript.crossFadeTo (mainWallChange, wallOffset, wallTiling);
-				//crossFadeScript.crossFadeTo (mainWallChange, wallOffset, wallTiling, smallWallOffset, smallWallTiling, tinyWallOffset, tinyWallTiling, threshWallOffset, threshWallTiling);
+				crossFadeScript.crossFadeTo (mainWallChange, wallOffset, wallTiling, smallWallOffset, smallWallTiling, tinyWallOffset, tinyWallTiling, threshWallOffset, threshWallTiling);
 				
 				//Add more enemies (delusions of enemies) in the pillar room based on high HRV
 				pillarRoom.enableDelusions();
@@ -161,12 +164,15 @@ public class EnvironmentChanges : MonoBehaviour {
 			}
 		}
 		
-		envTime += Time.deltaTime;
+		/**envTime += Time.deltaTime;
 			if (envTime >= 1f) {
-				//pillarRoom.enableDelusions();
-				crossFadeScript.crossFadeTo (mainWallChange, wallOffset, wallTiling, smallWallOffset, smallWallTiling, tinyWallOffset, tinyWallTiling, threshWallOffset, threshWallTiling);
+            //pillarRoom.enableDelusions();
+            //Debug.Log(floor.terrainData.splatPrototypes[0].texture);
+            floor.terrainData.splatPrototypes[0].texture = (Texture2D) firstWallChange;
+           
+            crossFadeScript.crossFadeTo (mainWallChange, wallOffset, wallTiling, smallWallOffset, smallWallTiling, tinyWallOffset, tinyWallTiling, threshWallOffset, threshWallTiling);
 				envTime = 0f;
-			}
+			}**/
 		
 		//Set of code to check player location, and change wall texture and materials accordingly
 		//The tricky part: The tiling and offset for the other stuff when they come (if they have different tillings and offsets that is)
