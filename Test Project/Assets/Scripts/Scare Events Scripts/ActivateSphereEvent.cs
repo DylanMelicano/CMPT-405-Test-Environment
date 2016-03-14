@@ -21,7 +21,7 @@ public class ActivateSphereEvent : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (enteredSphere == true) {
-			if (RenderSettings.ambientIntensity < 4.0f) {
+			if (RenderSettings.ambientIntensity < 2.0f) {
 				RenderSettings.ambientIntensity += 0.01f;
 			} else {
 				lightComplete = true;
