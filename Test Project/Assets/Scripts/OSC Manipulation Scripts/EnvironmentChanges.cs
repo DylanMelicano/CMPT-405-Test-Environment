@@ -168,23 +168,25 @@ public class EnvironmentChanges : MonoBehaviour {
 			if (envTime >= 1f) {
             //pillarRoom.enableDelusions();
             //Debug.Log(floor.terrainData.splatPrototypes[0].texture);
-            floor.terrainData.splatPrototypes[0].texture = (Texture2D) firstWallChange;
+            //floor.terrainData.splatPrototypes[0].texture = (Texture2D) firstWallChange;
            
             crossFadeScript.crossFadeTo (mainWallChange, wallOffset, wallTiling, smallWallOffset, smallWallTiling, tinyWallOffset, tinyWallTiling, threshWallOffset, threshWallTiling);
 				envTime = 0f;
 			}**/
 		
-		//Set of code to check player location, and change wall texture and materials accordingly
+		//Set of code to check player location, and change wall texture and materials accordingly. Also start changing the roof
 		//The tricky part: The tiling and offset for the other stuff when they come (if they have different tillings and offsets that is)
 		if (crossFadeScript.hasWallsChanged() == true && respawnLocation.passedCheckPoint1 == true && usedSecondChange == false) {
 			mainWallChange = secondWallChange;
 			crossFadeScript.setNewMaterial(thirdMaterial, thirdSmallWallMaterial,thirdTinyWallMaterial, thirdThreshMaterial); 
 			crossFadeScript.resetWallChanging();
+			crossFadeScript.startChangeRoof();
 			usedSecondChange = true;
 		} else if (crossFadeScript.hasWallsChanged() == true && respawnLocation.passedCheckPoint2 == true && usedThirdChange == false) {
 			mainWallChange = thirdWallChange;
 			crossFadeScript.setNewMaterial(fourthMaterial, fourthSmallWallMaterial, fourthTinyWallMaterial, fourthThreshMaterial); 
 			crossFadeScript.resetWallChanging();
+			crossFadeScript.startChangeRoof();
 			usedThirdChange = true;
 		}
 	}

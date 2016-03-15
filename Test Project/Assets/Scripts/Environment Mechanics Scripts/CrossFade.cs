@@ -16,6 +16,10 @@ public class CrossFade : MonoBehaviour
   private Vector2 tinyTiling; //Brick4 Material
   private Vector2 tinyOffset;
   
+  private Vector2 roofTiling;
+  private Vector2 roofOffset;
+  bool changeRoof = false;
+  
   public  float BlendSpeed = 3.0f;
   
   private bool trigger = false;
@@ -26,6 +30,7 @@ public class CrossFade : MonoBehaviour
   GameObject[] wallThresholds; //Brick1 material
   GameObject[] smallerWalls; //Brick3 Material
   GameObject[] thinWalls; //Brick4 Material
+  GameObject[] roofFloors;
   public Material nextWallMaterial;
   public Material nextThreshWallMaterial;
   public Material nextSmallWallMaterial;
@@ -39,6 +44,10 @@ public class CrossFade : MonoBehaviour
 	wallThresholds = GameObject.FindGameObjectsWithTag("ThreshWalls");
 	smallerWalls = GameObject.FindGameObjectsWithTag("SmallWalls");
 	thinWalls = GameObject.FindGameObjectsWithTag("TinyWalls");
+	roofFloors = GameObject.FindGameObjectsWithTag("RoofFloor");
+	
+	roofTiling = new Vector2 (4f, 4f);
+	roofOffset = new Vector2 (0f, 0f);
 	
     foreach (GameObject wall in changingWalls) {
 		wall.GetComponent<Renderer>().material.SetFloat( "_Blend", 0f );
@@ -55,6 +64,10 @@ public class CrossFade : MonoBehaviour
 	foreach (GameObject tinyWall in thinWalls) {
 		tinyWall.GetComponent<Renderer>().material.SetFloat( "_Blend", 0f );
 	}
+	
+	foreach (GameObject roof in roofFloors) {
+		roof.GetComponent<Renderer>().material.SetFloat( "_Blend", 0f );
+	}	
   }
   
   void Update ()
@@ -105,6 +118,14 @@ public class CrossFade : MonoBehaviour
 			thresh.GetComponent<Renderer>().material.SetTextureOffset ( "_Texture2", threshOffset );
 			thresh.GetComponent<Renderer>().material.SetTextureScale ( "_Texture2", threshTiling );
 		}
+		
+		if (changeRoof == true) {
+			foreach (GameObject roof in roofFloors) {
+				roof.GetComponent<Renderer>().material.SetTexture( "_Texture2", curTexture );
+				roof.GetComponent<Renderer>().material.SetTextureOffset ( "_Texture2", roofOffset );
+				roof.GetComponent<Renderer>().material.SetTextureScale ( "_Texture2", roofTiling );
+			}
+		}
 	}
     trigger = true;
   }
@@ -130,6 +151,12 @@ public class CrossFade : MonoBehaviour
 		
 		foreach (GameObject thresh in wallThresholds) {
 			thresh.GetComponent<Renderer>().material.SetFloat( "_Blend", fader );
+		}
+		
+		if (changeRoof == true) {
+			foreach (GameObject roof in roofFloors) {
+				roof.GetComponent<Renderer>().material.SetFloat( "_Blend", fader );
+			}
 		}
       
 		if ( fader >= 1.0f )
@@ -188,6 +215,17 @@ public class CrossFade : MonoBehaviour
 					thresh.GetComponent<Renderer>().material = nextThreshWallMaterial;
 				}
 			}
+			
+			//Roof and floor changing
+			if (changeRoof == true) {
+				foreach (GameObject roof in roofFloors) {
+					roof.GetComponent<Renderer>().material.SetTexture ("_MainTex", newTexture );
+					roof.GetComponent<Renderer>().material.SetTextureOffset ( "_MainTex", roofOffset );
+					roof.GetComponent<Renderer>().material.SetTextureScale ( "_MainTex",roofTiling );
+					roof.GetComponent<Renderer>().material.SetFloat( "_Blend", 0f );
+				}
+			}
+			changeRoof = false;
 			wallsChanged = true;
 		}
 	  trigger = false;
@@ -210,5 +248,10 @@ public class CrossFade : MonoBehaviour
   //Check to see if all walls have changed or not
   public bool hasWallsChanged () {
 	  return wallsChanged;
+  }
+  
+  //Toggle to start changing the roof material
+  public void startChangeRoof () {
+	  changeRoof = true;
   }
 }

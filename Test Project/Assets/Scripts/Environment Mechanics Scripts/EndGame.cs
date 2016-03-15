@@ -34,6 +34,8 @@ public class EndGame : MonoBehaviour {
 		}
 		
 		if (blackOutDone) {
+			//Remove the movement script of the player
+			player.GetComponent<ExampleMovement>().enabled = false;
 			if (MazeBGM.GetComponent<AudioSource>().volume > 0f) {
 				MazeBGM.GetComponent<AudioSource>().volume -= 0.001f;
 			}
