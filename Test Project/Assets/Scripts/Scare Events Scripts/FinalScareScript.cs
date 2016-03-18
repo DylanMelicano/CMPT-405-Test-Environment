@@ -20,9 +20,11 @@ public class FinalScareScript : MonoBehaviour {
 		if (hasFinalKey == true) {
 			finalEnemy.SetActive(true);
 			//Summon the final enemy. In waiting
+            //Play audio files of "Please don't leave. Don't leave me here. Are you leaving?"
 			if (inventory.hasKey(2) == false) {
 				//Enable the follow the player script for the final enemy
 				finalEnemy.GetComponent<FollowPlayer>().enabled = true;
+                finalEnemy.GetComponent<AudioSource>().enabled = true;
 			}
 		}	
 	}

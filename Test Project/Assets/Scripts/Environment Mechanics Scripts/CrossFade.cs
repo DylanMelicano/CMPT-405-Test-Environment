@@ -19,8 +19,13 @@ public class CrossFade : MonoBehaviour
   private Vector2 roofTiling;
   private Vector2 roofOffset;
   bool changeRoof = false;
-  
-  public  float BlendSpeed = 3.0f;
+
+  private Vector2 doorFillerTiling;
+  private Vector2 doorFillerOffset;
+    private Vector2 doorFiller2Tiling;
+    private Vector2 doorFiller2Offset;
+
+    public  float BlendSpeed = 3.0f;
   
   private bool trigger = false;
   private float fader = 0f;
@@ -31,6 +36,8 @@ public class CrossFade : MonoBehaviour
   GameObject[] smallerWalls; //Brick3 Material
   GameObject[] thinWalls; //Brick4 Material
   GameObject[] roofFloors;
+  GameObject[] doorFillers;
+  GameObject[] doorFillers2;
   public Material nextWallMaterial;
   public Material nextThreshWallMaterial;
   public Material nextSmallWallMaterial;
@@ -45,9 +52,17 @@ public class CrossFade : MonoBehaviour
 	smallerWalls = GameObject.FindGameObjectsWithTag("SmallWalls");
 	thinWalls = GameObject.FindGameObjectsWithTag("TinyWalls");
 	roofFloors = GameObject.FindGameObjectsWithTag("RoofFloor");
-	
-	roofTiling = new Vector2 (4f, 4f);
+	doorFillers = GameObject.FindGameObjectsWithTag("DoorFiller");
+    doorFillers2 = GameObject.FindGameObjectsWithTag("DoorFiller2");
+
+    roofTiling = new Vector2 (4f, 4f);
 	roofOffset = new Vector2 (0f, 0f);
+
+    doorFillerTiling = new Vector2(0.73f, 0.29f);
+    doorFillerOffset = new Vector2(0.77f, 2.265f);
+
+    doorFiller2Tiling = new Vector2(-0.16f, 0.66f);
+    doorFiller2Offset = new Vector2(0f, 0f);
 	
     foreach (GameObject wall in changingWalls) {
 		wall.GetComponent<Renderer>().material.SetFloat( "_Blend", 0f );
@@ -67,8 +82,18 @@ public class CrossFade : MonoBehaviour
 	
 	foreach (GameObject roof in roofFloors) {
 		roof.GetComponent<Renderer>().material.SetFloat( "_Blend", 0f );
-	}	
-  }
+	}
+
+    foreach (GameObject filler in doorFillers)
+    {
+        filler.GetComponent<Renderer>().material.SetFloat("_Blend", 0f);
+    }
+
+    foreach (GameObject filler2 in doorFillers2)
+    {
+        filler2.GetComponent<Renderer>().material.SetFloat("_Blend", 0f);
+    }
+   }
   
   void Update ()
   {
@@ -118,8 +143,23 @@ public class CrossFade : MonoBehaviour
 			thresh.GetComponent<Renderer>().material.SetTextureOffset ( "_Texture2", threshOffset );
 			thresh.GetComponent<Renderer>().material.SetTextureScale ( "_Texture2", threshTiling );
 		}
-		
-		if (changeRoof == true) {
+
+            foreach (GameObject filler in doorFillers)
+            {
+                filler.GetComponent<Renderer>().material.SetTexture("_Texture2", curTexture);
+                filler.GetComponent<Renderer>().material.SetTextureOffset("_Texture2", doorFillerOffset);
+                filler.GetComponent<Renderer>().material.SetTextureScale("_Texture2", doorFillerTiling);
+            }
+
+            foreach (GameObject filler2 in doorFillers2)
+            {
+                filler2.GetComponent<Renderer>().material.SetTexture("_Texture2", curTexture);
+                filler2.GetComponent<Renderer>().material.SetTextureOffset("_Texture2", doorFiller2Offset);
+                filler2.GetComponent<Renderer>().material.SetTextureScale("_Texture2", doorFiller2Tiling);
+
+            }
+
+            if (changeRoof == true) {
 			foreach (GameObject roof in roofFloors) {
 				roof.GetComponent<Renderer>().material.SetTexture( "_Texture2", curTexture );
 				roof.GetComponent<Renderer>().material.SetTextureOffset ( "_Texture2", roofOffset );
@@ -152,8 +192,18 @@ public class CrossFade : MonoBehaviour
 		foreach (GameObject thresh in wallThresholds) {
 			thresh.GetComponent<Renderer>().material.SetFloat( "_Blend", fader );
 		}
-		
-		if (changeRoof == true) {
+
+        foreach (GameObject filler in doorFillers)
+        {
+            filler.GetComponent<Renderer>().material.SetFloat("_Blend", fader );
+        }
+
+        foreach (GameObject filler2 in doorFillers2)
+        {
+            filler2.GetComponent<Renderer>().material.SetFloat("_Blend", fader );
+        }
+
+        if (changeRoof == true) {
 			foreach (GameObject roof in roofFloors) {
 				roof.GetComponent<Renderer>().material.SetFloat( "_Blend", fader );
 			}
@@ -215,9 +265,34 @@ public class CrossFade : MonoBehaviour
 					thresh.GetComponent<Renderer>().material = nextThreshWallMaterial;
 				}
 			}
-			
-			//Roof and floor changing
-			if (changeRoof == true) {
+
+                //Door fillers
+                foreach (GameObject filler in doorFillers)
+                {
+                    filler.GetComponent<Renderer>().material.SetTexture("_MainTex", newTexture);
+                    filler.GetComponent<Renderer>().material.SetTextureOffset("_MainTex", doorFillerOffset);
+                    filler.GetComponent<Renderer>().material.SetTextureScale("_MainTex", doorFillerTiling);
+                    filler.GetComponent<Renderer>().material.SetFloat("_Blend", 0f);
+                    if (newTexture.name != "brick1B4")
+                    {
+                        filler.GetComponent<Renderer>().material.SetColor("_Color", Color.white);
+                    }
+                }
+
+                foreach (GameObject filler2 in doorFillers2)
+                {
+                    filler2.GetComponent<Renderer>().material.SetTexture("_MainTex", newTexture);
+                    filler2.GetComponent<Renderer>().material.SetTextureOffset("_MainTex", doorFiller2Offset);
+                    filler2.GetComponent<Renderer>().material.SetTextureScale("_MainTex", doorFiller2Tiling);
+                    filler2.GetComponent<Renderer>().material.SetFloat("_Blend", 0f);
+                    if (newTexture.name != "brick1B4")
+                    {
+                        filler2.GetComponent<Renderer>().material.SetColor("_Color", Color.white);
+                    }
+                }
+
+                //Roof and floor changing
+                if (changeRoof == true) {
 				foreach (GameObject roof in roofFloors) {
 					roof.GetComponent<Renderer>().material.SetTexture ("_MainTex", newTexture );
 					roof.GetComponent<Renderer>().material.SetTextureOffset ( "_MainTex", roofOffset );
