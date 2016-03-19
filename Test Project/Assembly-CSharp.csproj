@@ -58,6 +58,7 @@
      <Compile Include="Assets\Scripts\Environment Mechanics Scripts\ChangeTexture.cs" />
      <Compile Include="Assets\Scripts\Environment Mechanics Scripts\CrossFade.cs" />
      <Compile Include="Assets\Scripts\Environment Mechanics Scripts\CrossFadeEnd.cs" />
+     <Compile Include="Assets\Scripts\Environment Mechanics Scripts\CrossFadeOpening.cs" />
      <Compile Include="Assets\Scripts\Environment Mechanics Scripts\DisablePillarEvent.cs" />
      <Compile Include="Assets\Scripts\Environment Mechanics Scripts\EndGame.cs" />
      <Compile Include="Assets\Scripts\Environment Mechanics Scripts\ExampleMovement.cs" />
