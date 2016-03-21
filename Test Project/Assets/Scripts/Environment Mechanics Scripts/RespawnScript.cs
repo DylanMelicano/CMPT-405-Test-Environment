@@ -75,6 +75,7 @@ public class RespawnScript : MonoBehaviour {
             if(RenderSettings.fogDensity <= 0)
             {
                 triggerVisionRestore = false;
+                move.enabled = true;
             }
         }
         
@@ -84,9 +85,7 @@ public class RespawnScript : MonoBehaviour {
             //RenderSettings.fogDensity += 0.05f;
             triggerVisionRestore = true;
             RenderSettings.fogDensity = 1f;
-            if (move.enabled == false) {
-					move.enabled = true;
-				}
+            
 			
 				if (playerCamera.enabled == false) {
 					playerCamera.enabled = true;

@@ -72,8 +72,8 @@ public class EnvironmentChanges : MonoBehaviour {
 	Vector2 tinyWallTiling;
 	
 	//Enemy Range Manipulation and possible change texture
-	GameObject endEnemyRadius;
-    //GameObject[] enemyDetectors;
+	//GameObject endEnemyRadius;
+    GameObject[] enemyDetectors;
 
     //Terrain changer
      public Terrain floor;
@@ -111,8 +111,8 @@ public class EnvironmentChanges : MonoBehaviour {
 		crossFadeScript.setNewMaterial(secondMaterial, secondSmallWallMaterial, secondTinyWallMaterial, secondThreshMaterial); //The first set of materials it will change to
 	
 		//Enemy range manipulation and such
-		endEnemyRadius = GameObject.Find("End Guardian 1/ProximityDetector");
-		//enemyDetectors = GameObject.FindGameObjectsWithTag("EnemyDetectors");
+		//endEnemyRadius = GameObject.Find("End Guardian2/ProximityDetector");
+		enemyDetectors = GameObject.FindGameObjectsWithTag("EnemyDetectors");
 	
 	}
 	
@@ -138,12 +138,11 @@ public class EnvironmentChanges : MonoBehaviour {
 				pillarRoom.enableDelusions();
 				
 				//change enemy range radius
-				endEnemyRadius.GetComponent<SphereCollider>().radius = 32f;
-				/**
+				//endEnemyRadius.GetComponent<SphereCollider>().radius = 32f;
 				foreach (GameObject enemyRange in enemyDetectors) {
 					enemyRange.GetComponent<SphereCollider>().radius = 32f;
 				}
-				**/
+				
 				toggleEnvFlags();
 			} else if (currAvgEnv <= (prevAvgEnv * 1.002f)){  //Should still be *0.something equivalent of high heart rate value
 				//torch changes back to normal
@@ -152,19 +151,18 @@ public class EnvironmentChanges : MonoBehaviour {
 					currFlameColor = 0;
 				}
 				//reset enemy range radius
-				endEnemyRadius.GetComponent<SphereCollider>().radius = 25f;
-				/**
+				//endEnemyRadius.GetComponent<SphereCollider>().radius = 25f;
 				foreach (GameObject enemyRange in enemyDetectors) {
 					enemyRange.GetComponent<SphereCollider>().radius = 25f;
 				}
-				**/
+				
 				toggleEnvFlags();
 			} else { //When the value is near the previous average (initially anyways)
 				toggleEnvFlags();
 			}
 		}
 		
-		envTime += Time.deltaTime;
+		/**envTime += Time.deltaTime;
 			if (envTime >= 1f) {
             pillarRoom.enableDelusions();
             //Debug.Log(floor.terrainData.splatPrototypes[0].texture);
@@ -172,7 +170,7 @@ public class EnvironmentChanges : MonoBehaviour {
            
             //crossFadeScript.crossFadeTo (mainWallChange, wallOffset, wallTiling, smallWallOffset, smallWallTiling, tinyWallOffset, tinyWallTiling, threshWallOffset, threshWallTiling);
 				envTime = 0f;
-			}
+			}**/
 		
 		//Set of code to check player location, and change wall texture and materials accordingly. Also start changing the roof
 		//The tricky part: The tiling and offset for the other stuff when they come (if they have different tillings and offsets that is)

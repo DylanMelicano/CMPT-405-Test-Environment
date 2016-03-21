@@ -7,11 +7,13 @@ public class FollowPlayerWithinRange : MonoBehaviour {
 	public Transform playerTransform;
     public int speed;
     public GameObject ProximityDetector;
+    public GameObject guardianEye;
     public AudioClip bahamutCry;
 
     ProximityDetector proxDet;
     bool close = false;
     bool hasCryed;
+    bool eyesActive = false;
     GameObject parent;
 
     // Use this for initialization
@@ -33,6 +35,11 @@ public class FollowPlayerWithinRange : MonoBehaviour {
         {
             //parent.transform.position = Vector3.MoveTowards(parent.transform.position, m_Camera.transform.position, speed * Time.deltaTime);
 			parent.transform.position = Vector3.MoveTowards(parent.transform.position, playerTransform.position, speed * Time.deltaTime);
+            if (eyesActive == false)
+            {
+                guardianEye.SetActive(true);
+                eyesActive = true;
+            }
             if (hasCryed == false)
             {
                 GetComponent<AudioSource>().PlayOneShot(bahamutCry, 0.8f);

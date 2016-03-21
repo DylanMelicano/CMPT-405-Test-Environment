@@ -31,6 +31,8 @@ public class OSCReceiver : MonoBehaviour {
 	public float currAverage = 0f;
 	
 	float calibrationTime = 0f;
+    float waitTime = 0f;
+    bool waitFinished = false;
 	bool startComputation = false;
 	bool calculated = false;
 	
@@ -57,14 +59,22 @@ public class OSCReceiver : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        //wait ten seconds before starting the heart rate measurement
+        waitTime = waitTime + Time.deltaTime;
+        if (waitTime >= 10f && waitFinished == false)
+        {
+            Debug.Log("Ten seconds have passed. Starting the HR Measurement System");
+            waitFinished = true;
+        }
+
 		calibrationTime = calibrationTime + Time.deltaTime;
-		if (calibrationTime >= 1f && calculated == false) {
+		if (waitFinished == true && calibrationTime >= 1f && calculated == false) {
 
 			//Debug.Log ("Ten seconds have passed. Number of Readings: " + numOfReadings + " test Reading: " + testNumber + " Checking array content: " + testNumberCheck + " Average of Readings: " + averageRates());			
 			prevAverage = currAverage;
 			currAverage = averageRates();
 			
-			Debug.Log("Ten seconds have passed. Previous Average of Readings: " + prevAverage + " Current Average of Readings: " + currAverage);
+			Debug.Log("One second has passed. Previous Average of Readings: " + prevAverage + " Current Average of Readings: " + currAverage);
 			
 			//If no recorded averages yet, do not start the checking
 			if (prevAverage != 0f && currAverage != 0f) {

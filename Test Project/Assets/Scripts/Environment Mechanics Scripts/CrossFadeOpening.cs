@@ -32,7 +32,7 @@ public class CrossFadeOpening : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetButton("Jump"))
+        if (Input.GetButton("Jump") && beginOpening == false)
         {
             beginOpening = true;
             curText = inBetween;
