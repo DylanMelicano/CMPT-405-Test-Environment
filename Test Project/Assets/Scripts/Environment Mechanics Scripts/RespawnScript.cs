@@ -21,6 +21,7 @@ public class RespawnScript : MonoBehaviour {
 	bool controlDown = false;
 	bool deathAudio = false;
 	bool deathAnimationDone = false;
+    bool triggerVisionRestore = false;
 
     // Use this for initialization
     void Start () {
@@ -43,17 +44,20 @@ public class RespawnScript : MonoBehaviour {
 			
 			//Play Audio 
 			if (deathAudio == false) {
-				GetComponent<AudioSource>().PlayOneShot(deathSound, 1f);
+				GetComponent<AudioSource>().PlayOneShot(deathSound, 2f);
 				deathAudio = true;
 			}
 			
 			//Blackout screen afterwards
-			if (deathAudio == true && GetComponent<AudioSource>().isPlaying == false && controlDown == true) {
-				if (RenderSettings.fogDensity < 1f) {
+			if (deathAudio == true && /*GetComponent<AudioSource>().isPlaying == false &&*/ controlDown == true) {
+				if (RenderSettings.fogDensity < 14f)
+                {
 					//RenderSettings.fogColor = blackOut;
 					RenderSettings.fogColor = deathVision;
-					RenderSettings.fogDensity += 0.01f;
-				} else {
+					RenderSettings.fogDensity += 0.15f;
+				}
+                else
+                {
 					deathAnimationDone = true;
 				}
 			}
@@ -64,11 +68,23 @@ public class RespawnScript : MonoBehaviour {
 		} else {
 			respawn = false;
 		}
-		
-		if (respawn) {
+
+        if(triggerVisionRestore == true)
+        {
+            RenderSettings.fogDensity -= 0.007f;
+            if(RenderSettings.fogDensity <= 0)
+            {
+                triggerVisionRestore = false;
+            }
+        }
+        
+
+        if (respawn) {
 			transform.position = spawnPoint.position;
-				RenderSettings.fogDensity = 0f;
-				if (move.enabled == false) {
+            //RenderSettings.fogDensity += 0.05f;
+            triggerVisionRestore = true;
+            RenderSettings.fogDensity = 1f;
+            if (move.enabled == false) {
 					move.enabled = true;
 				}
 			
@@ -83,6 +99,7 @@ public class RespawnScript : MonoBehaviour {
 				controlDown = false;
 				deathAudio = false;
 				deathAnimationDone = false;
+                
 
 		}
 	
