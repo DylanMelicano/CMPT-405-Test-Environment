@@ -6,6 +6,9 @@ public class RespawnScript : MonoBehaviour {
 	public Transform spawnPoint;
 	private bool respawn = false;
 	public bool playerDead = false;
+	public AudioClip deathSound;
+	public Color blackOut = new Color(0f, 0f, 0f, 1.0f);
+	public Color deathVision;
 	
 	public bool passedCheckPoint1 = false;
 	public bool passedCheckPoint2 = false;
@@ -14,6 +17,10 @@ public class RespawnScript : MonoBehaviour {
 	ExampleMovement move;
 	CameraMovement playerCamera;
     staticAnimator staticScript;
+	
+	bool controlDown = false;
+	bool deathAudio = false;
+	bool deathAnimationDone = false;
 
     // Use this for initialization
     void Start () {
@@ -26,25 +33,57 @@ public class RespawnScript : MonoBehaviour {
 	void Update () {
 		
 		if (playerDead) {
+			//Do animation properties
+			//Disable control first
+			if (controlDown == false) {
+				move.enabled = false;
+				playerCamera.enabled = false;
+				controlDown = true;
+			}
+			
+			//Play Audio 
+			if (deathAudio == false) {
+				GetComponent<AudioSource>().PlayOneShot(deathSound, 1f);
+				deathAudio = true;
+			}
+			
+			//Blackout screen afterwards
+			if (deathAudio == true && GetComponent<AudioSource>().isPlaying == false && controlDown == true) {
+				if (RenderSettings.fogDensity < 1f) {
+					//RenderSettings.fogColor = blackOut;
+					RenderSettings.fogColor = deathVision;
+					RenderSettings.fogDensity += 0.01f;
+				} else {
+					deathAnimationDone = true;
+				}
+			}
+		}
+		
+		if (deathAnimationDone) {
 			respawn = true;
 		} else {
 			respawn = false;
 		}
 		
 		if (respawn) {
-
-			if (move.enabled == false) {
-				move.enabled = true;
-			}
+			transform.position = spawnPoint.position;
+				RenderSettings.fogDensity = 0f;
+				if (move.enabled == false) {
+					move.enabled = true;
+				}
 			
-			if (playerCamera.enabled == false) {
-				playerCamera.enabled = true;
-			}
+				if (playerCamera.enabled == false) {
+					playerCamera.enabled = true;
+				}
 
-            staticScript.staticOn = false;
-            transform.position = spawnPoint.position;
-			// Change player state back to being alive
-			playerDead = false;
+				staticScript.staticOn = false;
+				// Change player state back to being alive
+				playerDead = false;
+				//Change animation states back to false
+				controlDown = false;
+				deathAudio = false;
+				deathAnimationDone = false;
+
 		}
 	
 	}

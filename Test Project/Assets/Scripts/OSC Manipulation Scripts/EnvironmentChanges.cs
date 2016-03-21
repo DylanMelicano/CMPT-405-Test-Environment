@@ -164,15 +164,15 @@ public class EnvironmentChanges : MonoBehaviour {
 			}
 		}
 		
-		/**envTime += Time.deltaTime;
+		envTime += Time.deltaTime;
 			if (envTime >= 1f) {
-            //pillarRoom.enableDelusions();
+            pillarRoom.enableDelusions();
             //Debug.Log(floor.terrainData.splatPrototypes[0].texture);
             //floor.terrainData.splatPrototypes[0].texture = (Texture2D) firstWallChange;
            
-            crossFadeScript.crossFadeTo (mainWallChange, wallOffset, wallTiling, smallWallOffset, smallWallTiling, tinyWallOffset, tinyWallTiling, threshWallOffset, threshWallTiling);
+            //crossFadeScript.crossFadeTo (mainWallChange, wallOffset, wallTiling, smallWallOffset, smallWallTiling, tinyWallOffset, tinyWallTiling, threshWallOffset, threshWallTiling);
 				envTime = 0f;
-			}**/
+			}
 		
 		//Set of code to check player location, and change wall texture and materials accordingly. Also start changing the roof
 		//The tricky part: The tiling and offset for the other stuff when they come (if they have different tillings and offsets that is)
