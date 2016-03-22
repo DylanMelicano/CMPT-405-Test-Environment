@@ -77,7 +77,7 @@ public class OSCReceiver : MonoBehaviour {
 			Debug.Log("One second has passed. Previous Average of Readings: " + prevAverage + " Current Average of Readings: " + currAverage);
 			
 			//If no recorded averages yet, do not start the checking
-			if (prevAverage != 0f && currAverage != 0f) {
+			if (prevAverage > 0f && currAverage > 0f) {
 					playerChanges.setAverages(prevAverage, currAverage);
 					playerChanges.toggleCheck();
 					

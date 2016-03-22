@@ -1,0 +1,501 @@
+Initialize engine version: 5.2.2f1 (3757309da7e7)
+[VRDevice] Successfully created device oculus.
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: NVIDIA GeForce GTX 560 Ti   (ID=0x1200)
+    Vendor:   NVIDIA
+    VRAM:     978 MB
+Begin MonoManager ReloadAssembly
+Platform assembly: C:\Users\hcilab\Desktop\Graeme Judkins and Dylan Melicano Files\Test Environment\CMPT-405-Test-Environment\Test Project\testBuild3_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\hcilab\Desktop\Graeme Judkins and Dylan Melicano Files\Test Environment\CMPT-405-Test-Environment\Test Project\testBuild3_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\hcilab\Desktop\Graeme Judkins and Dylan Melicano Files\Test Environment\CMPT-405-Test-Environment\Test Project\testBuild3_Data\Managed\Assembly-CSharp-firstpass.dll (this message is harmless)
+Loading C:\Users\hcilab\Desktop\Graeme Judkins and Dylan Melicano Files\Test Environment\CMPT-405-Test-Environment\Test Project\testBuild3_Data\Managed\Assembly-CSharp-firstpass.dll into Unity Child Domain
+Platform assembly: C:\Users\hcilab\Desktop\Graeme Judkins and Dylan Melicano Files\Test Environment\CMPT-405-Test-Environment\Test Project\testBuild3_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Users\hcilab\Desktop\Graeme Judkins and Dylan Melicano Files\Test Environment\CMPT-405-Test-Environment\Test Project\testBuild3_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\Users\hcilab\Desktop\Graeme Judkins and Dylan Melicano Files\Test Environment\CMPT-405-Test-Environment\Test Project\testBuild3_Data\Managed\Assembly-UnityScript.dll (this message is harmless)
+Loading C:\Users\hcilab\Desktop\Graeme Judkins and Dylan Melicano Files\Test Environment\CMPT-405-Test-Environment\Test Project\testBuild3_Data\Managed\Assembly-UnityScript.dll into Unity Child Domain
+Platform assembly: C:\Users\hcilab\Desktop\Graeme Judkins and Dylan Melicano Files\Test Environment\CMPT-405-Test-Environment\Test Project\testBuild3_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\Users\hcilab\Desktop\Graeme Judkins and Dylan Melicano Files\Test Environment\CMPT-405-Test-Environment\Test Project\testBuild3_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: C:\Users\hcilab\Desktop\Graeme Judkins and Dylan Melicano Files\Test Environment\CMPT-405-Test-Environment\Test Project\testBuild3_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading C:\Users\hcilab\Desktop\Graeme Judkins and Dylan Melicano Files\Test Environment\CMPT-405-Test-Environment\Test Project\testBuild3_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: C:\Users\hcilab\Desktop\Graeme Judkins and Dylan Melicano Files\Test Environment\CMPT-405-Test-Environment\Test Project\testBuild3_Data\Managed\System.Core.dll (this message is harmless)
+- Completed reload, in  0.086 seconds
+desktop: 1920x1080 59Hz; virtual: 3600x1165 at 0,0
+<RI> Initializing input.
+<RI> Input initialized.
+<RI> Initialized touch support.
+Platform assembly: C:\Users\hcilab\Desktop\Graeme Judkins and Dylan Melicano Files\Test Environment\CMPT-405-Test-Environment\Test Project\testBuild3_Data\Managed\System.dll (this message is harmless)
+03/22/16 02:51:40: [CAPI] LibOVR module is located at C:\Windows\system32\LibOVRRT32_0_7.dll
+
+ 
+(Filename:  Line: 46)
+
+Setting up 1 worker threads for Enlighten.
+  Thread -> id: 12954 -> priority: 1 
+03/22/16 02:51:53: [IPC] WARNING: Overhead alert threshold exceeded for Compositor_EndFrame : x718: C2S=38.4258 (21.8506-1310.71), S2C=9.02282 (4.30391-206.588), RTT=556.959 (106.936-11483.8), Runtime=509.51 (77.4704-11421.3), IPC=47.4486 (27.1478-1323.95) (microseconds) C2Ssize=995 (995-995), S2Csize=89 (89-89) (bytes)
+ 
+(Filename:  Line: 48)
+
+03/22/16 02:52:03: [IPC] WARNING: Overhead alert threshold exceeded for Compositor_EndFrame : x750: C2S=41.8694 (16.2224-1160.4), S2C=8.97245 (3.97284-53.6334), RTT=621.735 (106.274-11189.2), Runtime=570.893 (77.4704-11125.6), IPC=50.8418 (23.1749-1172.32) (microseconds) C2Ssize=995 (995-995), S2Csize=89 (89-89) (bytes)
+ 
+(Filename:  Line: 48)
+
+03/22/16 02:52:38: [IPC] WARNING: Overhead alert threshold exceeded for Compositor_EndFrame : x356: C2S=41.8841 (18.871-922.693), S2C=9.89026 (3.64177-110.246), RTT=633.337 (110.577-1690.11), Runtime=581.563 (81.1122-1601.39), IPC=51.7744 (26.1545-933.949) (microseconds) C2Ssize=995 (995-995), S2Csize=89 (89-89) (bytes)
+ 
+(Filename:  Line: 48)
+
+03/22/16 02:52:48: [IPC] WARNING: Overhead alert threshold exceeded for Compositor_EndFrame : x578: C2S=49.6909 (23.1749-6460.17), S2C=13.8356 (3.97284-586.988), RTT=540.263 (107.267-7036.57), Runtime=476.736 (77.4704-2601.22), IPC=63.5265 (27.8099-6827) (microseconds) C2Ssize=995 (995-995), S2Csize=89 (89-89) (bytes)
+ 
+(Filename:  Line: 48)
+
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.444627 ms
+
+Unloading 31 unused Assets to reduce memory usage. Loaded Objects now: 8197.
+Total: 1.884451 ms (FindLiveObjects: 0.349941 ms CreateObjectMapping: 0.124813 ms MarkObjects: 0.860451 ms  DeleteObjects: 0.548914 ms)
+
+03/22/16 02:52:58: [IPC] WARNING: Overhead alert threshold exceeded for Compositor_EndFrame : x457: C2S=51.2376 (17.2157-1686.8), S2C=20.3322 (3.97284-926.003), RTT=270.153 (106.936-3053.13), Runtime=198.583 (76.4772-2539.31), IPC=71.5699 (24.4992-1701.7) (microseconds) C2Ssize=995 (995-995), S2Csize=89 (89-89) (bytes)
+ 
+(Filename:  Line: 48)
+
+Ten seconds have passed. Starting the HR Measurement System
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+One second has passed. Previous Average of Readings: 0 Current Average of Readings: 0.001007994
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+One second has passed. Previous Average of Readings: 0.001007994 Current Average of Readings: 0.001011994
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+One second has passed. Previous Average of Readings: 0.001011994 Current Average of Readings: 0.001011994
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+One second has passed. Previous Average of Readings: 0.001011994 Current Average of Readings: 0.001011994
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+One second has passed. Previous Average of Readings: 0.001011994 Current Average of Readings: 0.001011994
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+One second has passed. Previous Average of Readings: 0.001011994 Current Average of Readings: 0.001007994
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+03/22/16 02:53:08: [IPC] WARNING: Overhead alert threshold exceeded for Compositor_EndFrame : x538: C2S=64.2799 (19.2021-3474.91), S2C=21.4673 (3.97284-655.188), RTT=398.965 (110.577-9092.84), Runtime=313.218 (81.1122-9051.46), IPC=85.7472 (26.4856-3494.78) (microseconds) C2Ssize=995 (995-995), S2Csize=89 (89-89) (bytes)
+ 
+(Filename:  Line: 48)
+
+One second has passed. Previous Average of Readings: 0.001007994 Current Average of Readings: 0.001007994
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+One second has passed. Previous Average of Readings: 0.001007994 Current Average of Readings: 0.001003994
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+One second has passed. Previous Average of Readings: 0.001003994 Current Average of Readings: 0.001003994
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+One second has passed. Previous Average of Readings: 0.001003994 Current Average of Readings: 0.0009999942
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+One second has passed. Previous Average of Readings: 0.0009999942 Current Average of Readings: 0.001003994
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+One second has passed. Previous Average of Readings: 0.001003994 Current Average of Readings: 0.001003994
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+One second has passed. Previous Average of Readings: 0.001003994 Current Average of Readings: 0.001003994
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+One second has passed. Previous Average of Readings: 0.001003994 Current Average of Readings: 0.001003994
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+One second has passed. Previous Average of Readings: 0.001003994 Current Average of Readings: 0.001003994
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+One second has passed. Previous Average of Readings: 0.001003994 Current Average of Readings: 0.001003994
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+03/22/16 02:53:18: [IPC] WARNING: Overhead alert threshold exceeded for Compositor_EndFrame : x535: C2S=40.57 (20.8574-1440.82), S2C=11.8492 (3.97284-800.528), RTT=281.647 (107.598-5371.95), Runtime=229.227 (77.1394-5282.23), IPC=52.4192 (26.1545-1454.39) (microseconds) C2Ssize=995 (995-995), S2Csize=89 (89-89) (bytes)
+ 
+(Filename:  Line: 48)
+
+One second has passed. Previous Average of Readings: 0.001003994 Current Average of Readings: 0.001003994
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+One second has passed. Previous Average of Readings: 0.001003994 Current Average of Readings: 0.001003994
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+One second has passed. Previous Average of Readings: 0.001003994 Current Average of Readings: 0.0009999942
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+One second has passed. Previous Average of Readings: 0.0009999942 Current Average of Readings: 0.0009999942
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+One second has passed. Previous Average of Readings: 0.0009999942 Current Average of Readings: 0.0009999942
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+One second has passed. Previous Average of Readings: 0.0009999942 Current Average of Readings: 0.0009999942
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+One second has passed. Previous Average of Readings: 0.0009999942 Current Average of Readings: 0.0009999942
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+One second has passed. Previous Average of Readings: 0.0009999942 Current Average of Readings: 0.0009999942
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+One second has passed. Previous Average of Readings: 0.0009999942 Current Average of Readings: 0.0009999942
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+One second has passed. Previous Average of Readings: 0.0009999942 Current Average of Readings: 0.0009999942
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+03/22/16 02:53:28: [IPC] WARNING: Overhead alert threshold exceeded for Compositor_EndFrame : x555: C2S=54.3814 (17.5467-2783.97), S2C=16.7999 (3.97284-1854.32), RTT=237.603 (115.212-6808.79), Runtime=166.422 (86.0783-6451.23), IPC=71.1813 (23.1749-2798.54) (microseconds) C2Ssize=995 (995-995), S2Csize=89 (89-89) (bytes)
+ 
+(Filename:  Line: 48)
+
+One second has passed. Previous Average of Readings: 0.0009999942 Current Average of Readings: 0.0009999942
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+One second has passed. Previous Average of Readings: 0.0009999942 Current Average of Readings: 0.0009999942
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+One second has passed. Previous Average of Readings: 0.0009999942 Current Average of Readings: 0.0009999942
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+One second has passed. Previous Average of Readings: 0.0009999942 Current Average of Readings: 0.0009999942
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+One second has passed. Previous Average of Readings: 0.0009999942 Current Average of Readings: 0.0009999942
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+One second has passed. Previous Average of Readings: 0.0009999942 Current Average of Readings: 0.0009999942
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+One second has passed. Previous Average of Readings: 0.0009999942 Current Average of Readings: 0.0009999942
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+One second has passed. Previous Average of Readings: 0.0009999942 Current Average of Readings: 0.0009999942
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+One second has passed. Previous Average of Readings: 0.0009999942 Current Average of Readings: 0.0009999942
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+One second has passed. Previous Average of Readings: 0.0009999942 Current Average of Readings: 0.0009999942
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+03/22/16 02:53:38: [IPC] WARNING: Overhead alert threshold exceeded for Compositor_EndFrame : x506: C2S=72.5587 (20.5264-4111.56), S2C=23.1023 (4.63498-1714.28), RTT=349.47 (108.591-6128.77), Runtime=253.809 (76.4772-6085.07), IPC=95.661 (27.1478-4126.13) (microseconds) C2Ssize=994 (995-995), S2Csize=89 (89-89) (bytes)
+ 
+(Filename:  Line: 48)
+
+One second has passed. Previous Average of Readings: 0.0009999942 Current Average of Readings: 0.0009999942
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+One second has passed. Previous Average of Readings: 0.0009999942 Current Average of Readings: 0.0009999942
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+One second has passed. Previous Average of Readings: 0.0009999942 Current Average of Readings: 0.0009999942
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+One second has passed. Previous Average of Readings: 0.0009999942 Current Average of Readings: 0.0009999942
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+One second has passed. Previous Average of Readings: 0.0009999942 Current Average of Readings: 0.0009999942
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+One second has passed. Previous Average of Readings: 0.0009999942 Current Average of Readings: 0.0009999942
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+One second has passed. Previous Average of Readings: 0.0009999942 Current Average of Readings: 0.001005994
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+One second has passed. Previous Average of Readings: 0.001005994 Current Average of Readings: 0.001005994
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+One second has passed. Previous Average of Readings: 0.001005994 Current Average of Readings: 0.001005994
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+03/22/16 02:53:48: [IPC] WARNING: Overhead alert threshold exceeded for Compositor_EndFrame : x505: C2S=94.0987 (22.1817-12959.4), S2C=26.4646 (3.97284-897.863), RTT=416.581 (108.591-13976.1), Runtime=296.017 (80.119-9227.26), IPC=120.563 (27.1478-12973) (microseconds) C2Ssize=995 (995-995), S2Csize=89 (89-89) (bytes)
+ 
+(Filename:  Line: 48)
+
+One second has passed. Previous Average of Readings: 0.001005994 Current Average of Readings: 0.001005994
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+One second has passed. Previous Average of Readings: 0.001005994 Current Average of Readings: 0.001005994
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+One second has passed. Previous Average of Readings: 0.001005994 Current Average of Readings: 0.001005994
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+One second has passed. Previous Average of Readings: 0.001005994 Current Average of Readings: 0.001005994
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+One second has passed. Previous Average of Readings: 0.001005994 Current Average of Readings: 0.001005994
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+One second has passed. Previous Average of Readings: 0.001005994 Current Average of Readings: 0.0009999942
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+One second has passed. Previous Average of Readings: 0.0009999942 Current Average of Readings: 0.0009999942
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+One second has passed. Previous Average of Readings: 0.0009999942 Current Average of Readings: 0.0009999942
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+One second has passed. Previous Average of Readings: 0.0009999942 Current Average of Readings: 0.0009999942
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+One second has passed. Previous Average of Readings: 0.0009999942 Current Average of Readings: 0.0009999942
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+03/22/16 02:53:58: [IPC] WARNING: Overhead alert threshold exceeded for Compositor_EndFrame : x501: C2S=50.0921 (16.2224-3173.97), S2C=12.578 (3.97284-303.591), RTT=269.242 (113.226-5607.67), Runtime=206.572 (81.1122-5551.05), IPC=62.6701 (22.5128-3191.52) (microseconds) C2Ssize=994 (995-995), S2Csize=88 (89-89) (bytes)
+ 
+(Filename:  Line: 48)
+
+One second has passed. Previous Average of Readings: 0.0009999942 Current Average of Readings: 0.001003994
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+One second has passed. Previous Average of Readings: 0.001003994 Current Average of Readings: 0.001003994
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+One second has passed. Previous Average of Readings: 0.001003994 Current Average of Readings: 0.001007994
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+One second has passed. Previous Average of Readings: 0.001007994 Current Average of Readings: 0.001007994
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+One second has passed. Previous Average of Readings: 0.001007994 Current Average of Readings: 0.001007994
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+One second has passed. Previous Average of Readings: 0.001007994 Current Average of Readings: 0.001007994
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+One second has passed. Previous Average of Readings: 0.001007994 Current Average of Readings: 0.001007994
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+One second has passed. Previous Average of Readings: 0.001007994 Current Average of Readings: 0.001007994
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+One second has passed. Previous Average of Readings: 0.001007994 Current Average of Readings: 0.001003994
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+One second has passed. Previous Average of Readings: 0.001003994 Current Average of Readings: 0.001003994
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+03/22/16 02:54:08: [IPC] WARNING: Overhead alert threshold exceeded for Compositor_EndFrame : x658: C2S=43.2967 (17.5467-1362.35), S2C=13.9558 (3.97284-449.262), RTT=276.884 (105.611-5731.49), Runtime=219.631 (72.8355-5682.82), IPC=57.2525 (23.8371-1376.59) (microseconds) C2Ssize=995 (995-995), S2Csize=89 (89-89) (bytes)
+ 
+(Filename:  Line: 48)
+
+One second has passed. Previous Average of Readings: 0.001003994 Current Average of Readings: 0.0009999942
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+One second has passed. Previous Average of Readings: 0.0009999942 Current Average of Readings: 0.0009999942
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+One second has passed. Previous Average of Readings: 0.0009999942 Current Average of Readings: 0.0009999942
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+One second has passed. Previous Average of Readings: 0.0009999942 Current Average of Readings: 0.0009999942
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+One second has passed. Previous Average of Readings: 0.0009999942 Current Average of Readings: 0.0009999942
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+One second has passed. Previous Average of Readings: 0.0009999942 Current Average of Readings: 0.0009999942
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+One second has passed. Previous Average of Readings: 0.0009999942 Current Average of Readings: 0.0009999942
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+One second has passed. Previous Average of Readings: 0.0009999942 Current Average of Readings: 0.0009999942
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+One second has passed. Previous Average of Readings: 0.0009999942 Current Average of Readings: 0.0009999942
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+One second has passed. Previous Average of Readings: 0.0009999942 Current Average of Readings: 0.0009999942
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+03/22/16 02:54:18: [IPC] WARNING: Overhead alert threshold exceeded for Compositor_EndFrame : x447: C2S=40.5972 (17.2157-899.849), S2C=15.7892 (4.30391-431.053), RTT=632.525 (116.206-10789.9), Runtime=576.139 (84.754-10665.8), IPC=56.3864 (24.4992-1187.22) (microseconds) C2Ssize=995 (995-995), S2Csize=89 (89-89) (bytes)
+ 
+(Filename:  Line: 48)
+
+One second has passed. Previous Average of Readings: 0.0009999942 Current Average of Readings: 0.0009999942
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+One second has passed. Previous Average of Readings: 0.0009999942 Current Average of Readings: 0.0009999942
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+One second has passed. Previous Average of Readings: 0.0009999942 Current Average of Readings: 0.0009999942
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+One second has passed. Previous Average of Readings: 0.0009999942 Current Average of Readings: 0.0009999942
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+One second has passed. Previous Average of Readings: 0.0009999942 Current Average of Readings: 0.0009999942
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+One second has passed. Previous Average of Readings: 0.0009999942 Current Average of Readings: 0.0009999942
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+One second has passed. Previous Average of Readings: 0.0009999942 Current Average of Readings: 0.0009999942
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+One second has passed. Previous Average of Readings: 0.0009999942 Current Average of Readings: 0.001003994
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+One second has passed. Previous Average of Readings: 0.001003994 Current Average of Readings: 0.001003994
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+One second has passed. Previous Average of Readings: 0.001003994 Current Average of Readings: 0.001003994
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+03/22/16 02:54:28: [IPC] WARNING: Overhead alert threshold exceeded for Compositor_EndFrame : x586: C2S=41.29 (17.8778-943.55), S2C=13.1293 (4.30391-512.497), RTT=345.474 (113.226-5837.43), Runtime=291.055 (83.0986-5761.95), IPC=54.4192 (24.4992-1254.09) (microseconds) C2Ssize=995 (995-995), S2Csize=89 (89-89) (bytes)
+ 
+(Filename:  Line: 48)
+
+One second has passed. Previous Average of Readings: 0.001003994 Current Average of Readings: 0.001003994
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+One second has passed. Previous Average of Readings: 0.001003994 Current Average of Readings: 0.001003994
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+One second has passed. Previous Average of Readings: 0.001003994 Current Average of Readings: 0.001003994
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+One second has passed. Previous Average of Readings: 0.001003994 Current Average of Readings: 0.001003994
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+One second has passed. Previous Average of Readings: 0.001003994 Current Average of Readings: 0.001003994
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+One second has passed. Previous Average of Readings: 0.001003994 Current Average of Readings: 0.0009999942
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+One second has passed. Previous Average of Readings: 0.0009999942 Current Average of Readings: 0.0009999942
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+One second has passed. Previous Average of Readings: 0.0009999942 Current Average of Readings: 0.0009999942
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+One second has passed. Previous Average of Readings: 0.0009999942 Current Average of Readings: 0.0009999942
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+One second has passed. Previous Average of Readings: 0.0009999942 Current Average of Readings: 0.0009999942
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+03/22/16 02:54:38: [IPC] WARNING: Overhead alert threshold exceeded for Compositor_EndFrame : x553: C2S=50.3454 (22.1817-3579.2), S2C=21.6459 (3.97284-1188.87), RTT=631.76 (117.53-7795.38), Runtime=559.769 (86.4093-7454.05), IPC=71.9913 (28.141-3594.1) (microseconds) C2Ssize=995 (995-995), S2Csize=89 (89-89) (bytes)
+ 
+(Filename:  Line: 48)
+
+One second has passed. Previous Average of Readings: 0.0009999942 Current Average of Readings: 0.0009999942
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+One second has passed. Previous Average of Readings: 0.0009999942 Current Average of Readings: 0.0009999942
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+One second has passed. Previous Average of Readings: 0.0009999942 Current Average of Readings: 0.0009999942
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+One second has passed. Previous Average of Readings: 0.0009999942 Current Average of Readings: 0.0009999942
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+

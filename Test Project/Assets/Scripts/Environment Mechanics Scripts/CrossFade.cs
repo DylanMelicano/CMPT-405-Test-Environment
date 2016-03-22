@@ -20,7 +20,9 @@ public class CrossFade : MonoBehaviour
   private Vector2 roofOffset;
   bool changeRoof = false;
 
-  private Vector2 doorFillerTiling;
+    private Vector2 littleTiling;
+
+    private Vector2 doorFillerTiling;
   private Vector2 doorFillerOffset;
     private Vector2 doorFiller2Tiling;
     private Vector2 doorFiller2Offset;
@@ -38,6 +40,8 @@ public class CrossFade : MonoBehaviour
   GameObject[] roofFloors;
   GameObject[] doorFillers;
   GameObject[] doorFillers2;
+  GameObject[] littleWalls; //Special for Brick 5. ugh
+
   public Material nextWallMaterial;
   public Material nextThreshWallMaterial;
   public Material nextSmallWallMaterial;
@@ -51,9 +55,12 @@ public class CrossFade : MonoBehaviour
 	wallThresholds = GameObject.FindGameObjectsWithTag("ThreshWalls");
 	smallerWalls = GameObject.FindGameObjectsWithTag("SmallWalls");
 	thinWalls = GameObject.FindGameObjectsWithTag("TinyWalls");
-	roofFloors = GameObject.FindGameObjectsWithTag("RoofFloor");
+    littleWalls = GameObject.FindGameObjectsWithTag("LittleWall");
+        roofFloors = GameObject.FindGameObjectsWithTag("RoofFloor");
 	doorFillers = GameObject.FindGameObjectsWithTag("DoorFiller");
     doorFillers2 = GameObject.FindGameObjectsWithTag("DoorFiller2");
+
+    littleTiling = new Vector2(0.69f, 1.5f);
 
     roofTiling = new Vector2 (4f, 4f);
 	roofOffset = new Vector2 (0f, 0f);
@@ -84,7 +91,12 @@ public class CrossFade : MonoBehaviour
 		roof.GetComponent<Renderer>().material.SetFloat( "_Blend", 0f );
 	}
 
-    foreach (GameObject filler in doorFillers)
+        foreach (GameObject little in littleWalls)
+        {
+            little.GetComponent<Renderer>().material.SetFloat("_Blend", 0f);
+        }
+
+        foreach (GameObject filler in doorFillers)
     {
         filler.GetComponent<Renderer>().material.SetFloat("_Blend", 0f);
     }
@@ -144,6 +156,13 @@ public class CrossFade : MonoBehaviour
 			thresh.GetComponent<Renderer>().material.SetTextureScale ( "_Texture2", threshTiling );
 		}
 
+            foreach (GameObject little in littleWalls)
+            {
+                little.GetComponent<Renderer>().material.SetTexture("_Texture2", curTexture);
+                little.GetComponent<Renderer>().material.SetTextureOffset("_Texture2", roofOffset);
+                little.GetComponent<Renderer>().material.SetTextureScale("_Texture2", littleTiling);
+            }
+
             foreach (GameObject filler in doorFillers)
             {
                 filler.GetComponent<Renderer>().material.SetTexture("_Texture2", curTexture);
@@ -193,7 +212,12 @@ public class CrossFade : MonoBehaviour
 			thresh.GetComponent<Renderer>().material.SetFloat( "_Blend", fader );
 		}
 
-        foreach (GameObject filler in doorFillers)
+            foreach (GameObject little in littleWalls)
+            {
+                little.GetComponent<Renderer>().material.SetFloat("_Blend", fader);
+            }
+
+            foreach (GameObject filler in doorFillers)
         {
             filler.GetComponent<Renderer>().material.SetFloat("_Blend", fader );
         }
@@ -266,7 +290,19 @@ public class CrossFade : MonoBehaviour
 				}
 			}
 
-                //Door fillers
+                //Door fillers and Brick5 special
+                foreach (GameObject little in littleWalls)
+                {
+                    little.GetComponent<Renderer>().material.SetTexture("_MainTex", newTexture);
+                    little.GetComponent<Renderer>().material.SetTextureOffset("_MainTex", roofOffset);
+                    little.GetComponent<Renderer>().material.SetTextureScale("_MainTex", littleTiling);
+                    little.GetComponent<Renderer>().material.SetFloat("_Blend", 0f);
+                    if (newTexture.name != "brick1B4")
+                    {
+                        little.GetComponent<Renderer>().material.SetColor("_Color", Color.white);
+                    }
+                }
+
                 foreach (GameObject filler in doorFillers)
                 {
                     filler.GetComponent<Renderer>().material.SetTexture("_MainTex", newTexture);
