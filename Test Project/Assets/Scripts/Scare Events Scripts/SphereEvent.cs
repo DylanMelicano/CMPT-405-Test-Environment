@@ -72,8 +72,12 @@ public class SphereEvent : MonoBehaviour {
 				eventDuration -= 1.0f; //Still needs fixing
 			}
 		}
-		
-		if (eventDuration == 0) {
+        else
+        {
+            this.GetComponent<Renderer>().material = sphereMaterials[0];
+        }
+
+        if (eventDuration == 0) {
 			sphereAudio.loop = false;
 		}
 	
@@ -89,6 +93,7 @@ public class SphereEvent : MonoBehaviour {
 				activeEventScript.openSphereRoomDoor();
 			}
 		}
+        
 	}
 	
 	//Rotating the offset script
@@ -119,23 +124,23 @@ public class SphereEvent : MonoBehaviour {
 	//Randomize choice of rotation
 	public void randomizeRotation () {
 		if (randTemp == 1) {
-			actualSpeedX = 0;
-			actualSpeedY = scrollSpeedY;
+			actualSpeedX = 0 + Random.Range(-2, 3);
+			actualSpeedY = scrollSpeedY + Random.Range(-2, 3);
 		} else if (randTemp == 2) {
-			actualSpeedX = scrollSpeedX;
-			actualSpeedY = 0;
+			actualSpeedX = scrollSpeedX + Random.Range(-2, 3);
+			actualSpeedY = 0 + Random.Range(-2, 3);
 		} else if (randTemp == 3) {
-			actualSpeedX = scrollSpeedX;
-			actualSpeedY = scrollSpeedY;
+			actualSpeedX = scrollSpeedX + Random.Range(-2, 3);
+			actualSpeedY = scrollSpeedY + Random.Range(-2, 3);
 		} else if (randTemp == 4) {
-			actualSpeedX = 0;
-			actualSpeedY = -scrollSpeedY;
+			actualSpeedX = 0 + Random.Range(-2, 3);
+			actualSpeedY = -scrollSpeedY + Random.Range(-2, 3);
 		} else if (randTemp == 5) {
-			actualSpeedX = -scrollSpeedX;
-			actualSpeedY = 0;
+			actualSpeedX = -scrollSpeedX + Random.Range(-2, 3);
+			actualSpeedY = 0 + Random.Range(-2, 3);
 		} else {
-			actualSpeedX = -scrollSpeedX;
-			actualSpeedY = -scrollSpeedY;
+			actualSpeedX = -scrollSpeedX + Random.Range(-2, 3);
+			actualSpeedY = -scrollSpeedY + Random.Range(-2, 3);
 		}
 	}
 	

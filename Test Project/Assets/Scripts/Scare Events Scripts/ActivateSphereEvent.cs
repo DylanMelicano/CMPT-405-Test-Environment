@@ -21,7 +21,7 @@ public class ActivateSphereEvent : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (enteredSphere == true) {
-			if (RenderSettings.ambientIntensity < 2.0f) {
+			if (RenderSettings.ambientIntensity < 1.10f) {
 				RenderSettings.ambientIntensity += 0.01f;
 			} else {
 				lightComplete = true;
@@ -57,7 +57,7 @@ public class ActivateSphereEvent : MonoBehaviour {
 			//sphereRoom.GetComponent<SphereEvent>().enabled = true;
 		}
 	}
-	
+	/*
 	void OnTriggerExit (Collider other) {
 		if (other.CompareTag("Player")){
 			Debug.Log ("Sphere Room Deactivate");
@@ -67,6 +67,7 @@ public class ActivateSphereEvent : MonoBehaviour {
 			gameObject.SetActive(false);
 		}
 	}
+    */
 	
 	public void openSphereRoomDoor () {
 		sphereDoor.SetActive(false);
