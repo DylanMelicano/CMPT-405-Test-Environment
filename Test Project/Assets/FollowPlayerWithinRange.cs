@@ -42,7 +42,7 @@ public class FollowPlayerWithinRange : MonoBehaviour {
             }
             if (hasCryed == false)
             {
-                GetComponent<AudioSource>().PlayOneShot(bahamutCry, 0.8f);
+                GetComponent<AudioSource>().PlayOneShot(bahamutCry, 1f);
                 proxDet.hasCryed = true;
             }
         }

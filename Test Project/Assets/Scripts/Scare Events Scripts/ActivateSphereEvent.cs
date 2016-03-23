@@ -6,7 +6,7 @@ public class ActivateSphereEvent : MonoBehaviour {
 
     public AudioClip doorClose;
 
-    private bool enteredSphere = false;
+    public bool enteredSphere = false;
 	GameObject sphereRoom;
 	GameObject sphereDoor;
 	private bool lightComplete = false;

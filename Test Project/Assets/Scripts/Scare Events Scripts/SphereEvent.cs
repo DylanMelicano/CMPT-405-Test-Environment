@@ -5,6 +5,7 @@ public class SphereEvent : MonoBehaviour {
 	
 	public float eventDuration;	//In seconds
 	private float eventsTime; // Manipulates the series of events
+    public GameObject ActivationEvent;
 	
 	//index 0 = default material
 	public Material[] sphereMaterials;
@@ -91,7 +92,9 @@ public class SphereEvent : MonoBehaviour {
 			
 			if (RenderSettings.ambientIntensity <= 0f) {
 				activeEventScript.openSphereRoomDoor();
-			}
+                activeEventScript.enteredSphere = false;
+                ActivationEvent.SetActive(false);
+            }
 		}
         
 	}
